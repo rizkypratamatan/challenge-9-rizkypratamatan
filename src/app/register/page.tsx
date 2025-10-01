@@ -1,5 +1,5 @@
-import Logo from "@/app/_components/Logo";
-import PageTitle from "@/app/_components/PageTitle";
+import Logo from "@/components/Logo";
+import PageTitle from "@/components/PageTitle";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

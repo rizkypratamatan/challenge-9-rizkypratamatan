@@ -1,5 +1,5 @@
-import HeaderButton from "@/app/_components/Header/Button";
-import Logo from "@/app/_components/Logo";
+import HeaderButton from "@/components/Header/Button";
+import Logo from "@/components/Logo";
 import Image from "next/image";
 import React from "react";
 

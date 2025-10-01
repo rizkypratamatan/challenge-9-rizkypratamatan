@@ -1,12 +1,12 @@
 import React from "react";
 
 
-type PageTitleProps = {
+type Props = {
     title: string;
     description: string;
 };
 
-const PageTitle: React.FC<PageTitleProps> = ({title, description}) => {
+const PageTitle: React.FC<Props> = ({title, description}) => {
     return (
         <div className="flex flex-col gap-1">
             <h2 className="text-2xl font-bold">{title}</h2>

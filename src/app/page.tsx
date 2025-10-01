@@ -1,5 +1,5 @@
-import Footer from "@/app/_components/Footer";
-import Header from "@/app/_components/Header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import React from "react";
 
 

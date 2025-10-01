@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 
-type HeaderButtonProps = {
+type Props = {
     src: string;
     width: number;
     height: number;
@@ -11,7 +11,7 @@ type HeaderButtonProps = {
     onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
-const HeaderButton: React.FC<HeaderButtonProps> = ({src, width, height, alt, text, onClick}) => {
+const HeaderButton: React.FC<Props> = ({src, width, height, alt, text, onClick}) => {
     return (
         <div className="flex gap-2 items-center px-3 py-2 border border-neutral-300 rounded-full cursor-pointer" onClick={onClick}>
             <Image src={src} width={width} height={height} alt={alt}/>

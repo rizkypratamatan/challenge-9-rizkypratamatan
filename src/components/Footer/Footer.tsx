@@ -1,5 +1,5 @@
-import Logo from "@/app/_components/Logo";
-import SocialMedia from "@/app/_components/SocialMedia";
+import Logo from "@/components/Logo";
+import SocialMedia from "@/components/SocialMedia";
 import Link from "next/link";
 import React from "react";
 
