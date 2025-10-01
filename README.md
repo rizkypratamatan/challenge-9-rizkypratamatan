@@ -50,10 +50,10 @@ Desain: [Figma Project](https://www.figma.com/design/W38k1PafXVD6LnAQo8lNWe/Ecom
 E-Commerce Frontend MVP Guide (Business
 • FULL per Endpoint)
 
-Goal:	Mentee	men-deliver	MVP	FE	komersial	lengkap	yang	mencakup	semua	endpoint	yang
-disediakan:	katalog	publik,	auth,	profil,	penjual	(seller),	keranjang,	checkout	&	pesanan,	fulfillment
-penjual,	serta	ulasan.	Fokus	pada	end-to-end	user	flows,	UI	surfaces,	akses/otorisasi,	dan	acceptance
-criteria—tanpa	kode.
+Goal:    Mentee men-deliver MVP FE komersial lengkap yang mencakup semua endpoint yang
+disediakan:    katalog publik, auth, profil, penjual    (seller), keranjang, checkout & pesanan, fulfillment
+penjual, serta ulasan. Fokus pada end-to-end user flows, UI surfaces, akses/otorisasi, dan acceptance
+criteria—tanpa kode.
 
 0) Tech Stack (Wajib)
    • Next.js + TypeScript — framework & type safety
@@ -64,7 +64,7 @@ criteria—tanpa	kode.
    • Day.js — format waktu/tanggal (order timeline, createdAt)
    • Zod + React Hook Form — validasi & form handling (produk, profil, alamat, review)
 
-Opsional	pendukung:	ESLint/Prettier,	Next	Image,	Playwright	untuk	smoke	E2E.
+Opsional pendukung:    ESLint/Prettier, Next Image, Playwright untuk smoke E2E.
 
 1) Prinsip Umum
    • Auth required: Aksi privat (cart, checkout, my orders, seller actions, review) wajib
@@ -297,6 +297,7 @@ Acceptance
     • Totals (subtotal, grandTotal) akurat di semua langkah.
 
 16) Saran Timeline (7 Hari)
+
 1. Hari 1: Auth & Me, IA, Layout, Catalog list + categories.
 2. Hari 2: Product detail + Reviews (read).
 3. Hari 3: Cart (add/update/remove/clear) + mini cart.
@@ -304,6 +305,6 @@ Acceptance
 5. Hari 5: Reviews (upsert/delete) + QA buyer flows.
 6. Hari 7: Seller activation/shop + Seller products CRUD + Fulfillment + QA.
 
-Catatan	Mentor:	Prioritaskan	alur	pembeli	terlebih	dahulu	untuk	business	value	tercepat;	setelah	itu,
-ramp	up	ke	sisi	seller.	Pastikan	setiap	aksi	ada	feedback	visual	(toast/state	change)	dan	pagination
-berjalan	mulus	di	semua	listing.	
+Catatan Mentor:    Prioritaskan alur pembeli terlebih dahulu untuk business value tercepat; setelah itu,
+ramp up ke sisi seller. Pastikan setiap aksi ada feedback visual    (toast/state change)    dan pagination
+berjalan mulus di semua listing.	
