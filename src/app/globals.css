@@ -1,16 +1,28 @@
 @import "tailwindcss";
 
 :root {
+    --contrast-0: #fff;
     --neutral-100: #f5f5f5;
     --neutral-200: #e9eaeb;
+    --neutral-300: #d5d7da;
+    --neutral-700: #414651;
+    --neutral-950: #0a0d12;
 }
 
 @theme inline {
+    --color-contrast-0: var(--contrast-0);
     --color-neutral-100: var(--neutral-100);
     --color-neutral-200: var(--neutral-200);
+    --color-neutral-300: var(--neutral-300);
+    --color-neutral-700: var(--neutral-700);
+    --color-neutral-950: var(--neutral-950);
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
     --spacing-9_19_: 0.574rem;
+    --spacing-12_: 0.75rem;
+    --spacing-18_: 1.125rem;
+    --spacing-48_: 3rem;
+    --spacing-56_: 3.5rem;
     --spacing-451_: 28.188rem;
     --shadow-25: 0px 0px 20px 0px #CBCACA40;
 }
