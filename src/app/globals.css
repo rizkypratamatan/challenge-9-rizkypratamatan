@@ -7,6 +7,7 @@
     --neutral-300: #d5d7da;
     --neutral-700: #414651;
     --neutral-950: #0a0d12;
+    --red: #ee1d52;
 }
 
 @theme inline {
@@ -16,14 +17,25 @@
     --color-neutral-300: var(--neutral-300);
     --color-neutral-700: var(--neutral-700);
     --color-neutral-950: var(--neutral-950);
+    --color-red: var(--red);
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
+    --spacing-min10_: -0.625rem;
+    --spacing-min8_: -0.5rem;
     --spacing-9_19_: 0.574rem;
     --spacing-12_: 0.75rem;
     --spacing-18_: 1.125rem;
+    --spacing-44_: 2.75rem;
     --spacing-48_: 3rem;
     --spacing-56_: 3.5rem;
+    --spacing-80_: 5rem;
+    --spacing-84_: 5.25rem;
+    --spacing-120_: 7.5rem;
+    --spacing-132_: 8.25rem;
+    --spacing-150_: 9.375rem;
+    --spacing-380_: 23.75rem;
     --spacing-451_: 28.188rem;
+    --spacing-623_: 38.938rem;
     --shadow-25: 0px 0px 20px 0px #CBCACA40;
 }
 
