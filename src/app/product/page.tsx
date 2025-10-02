@@ -14,7 +14,7 @@ const Product: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="gap-12">
+            <main className="flex-col gap-12">
                 <section className="flex flex-col gap-6">
                     <div className="flex gap-2 items-center h-30_">
                         <Link className="font-semibold" href={'/'}>Home</Link>

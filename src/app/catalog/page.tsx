@@ -1,4 +1,3 @@
-import FilterCategory from "@/components/Filter/Category";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
@@ -6,14 +5,15 @@ import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import React from "react";
-import FilterRating from "../../components/Filter/Rating";
+import FilterCategory from "../../components/FilterCategory";
+import FilterRating from "../../components/FilterRating";
 
 
 const Catalog: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="gap-6">
+            <main className="flex-col gap-6">
                 <h2 className="text-32_ font-bold">Catalog</h2>
                 <div className="flex gap-6 items-start">
                     <section className="basis-266_ flex flex-col gap-6 py-4 border border-neutral-300 rounded-xl">

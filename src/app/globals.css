@@ -11,6 +11,7 @@
     --neutral-200: #e9eaeb;
     --neutral-300: #d5d7da;
     --neutral-700: #414651;
+    --neutral-600: #535862;
     --neutral-950: #0a0d12;
     --red: #ee1d52;
     --radius: 0.625rem;
@@ -54,6 +55,7 @@
     --color-neutral-100: var(--neutral-100);
     --color-neutral-200: var(--neutral-200);
     --color-neutral-300: var(--neutral-300);
+    --color-neutral-600: var(--neutral-600);
     --color-neutral-700: var(--neutral-700);
     --color-neutral-950: var(--neutral-950);
     --color-red: var(--red);
@@ -83,12 +85,14 @@
     --spacing-150_: 9.375rem;
     --spacing-160_: 10rem;
     --spacing-167_: 10.438rem;
+    --spacing-168_: 10.5rem;
     --spacing-180_: 11.25rem;
     --spacing-220_: 13.75rem;
     --spacing-266_: 16.625rem;
     --spacing-300_: 18.75rem;
     --spacing-312_: 19.5rem;
     --spacing-340_: 21.25rem;
+    --spacing-352_: 22rem;
     --spacing-380_: 23.75rem;
     --spacing-451_: 28.188rem;
     --spacing-623_: 38.938rem;
@@ -145,7 +149,7 @@
     }
 
     main {
-        @apply flex flex-col px-120_ py-132_;
+        @apply flex px-120_ py-132_;
     }
 }
 
