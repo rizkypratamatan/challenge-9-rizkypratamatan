@@ -215,7 +215,7 @@ Acceptance
     • Public: /products, /products/[id], /categories (opsional sebagai filter), /login, /register
     • Private (Buyer): /cart, /checkout, /orders, /orders/[id], /me
     • Private (Seller): /seller/activate, /seller/shop, /seller/products, /seller/orders
-    • Shared Components: Product Card, Category Filter, Price Tag, Rating Badge, Qty
+    • Shared Components: Product Card, Category Filter, Price Tag, FilterRating Badge, Qty
     Stepper, Cart Drawer, Order Timeline, Review List/Form.
 
 12) Permissions & Edge Cases

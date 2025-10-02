@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import {Button} from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="flex flex-col gap-10 px-120_ py-132_">
+            <main className="gap-10">
                 <section className="relative h-340_ bg-cream-0 rounded-2xl">
                     <Image className="absolute left-150_" src={'/images/image-hero.png'} width={376} height={376} alt={'Hero Image'}/>
                     <div className="absolute top-77_ right-300_ flex flex-col gap-4">
@@ -36,7 +36,8 @@ const Home: React.FC = () => {
                     </div>
                 </section>
                 <section className="text-center">
-                    <Button className="w-220_ h-48_ p-2 bg-contrast-0 border border-neutral-300 rounded-xl font-semibold text-neutral-950 cursor-pointer">Load More</Button>
+                    <Button className="w-220_ h-48_ p-2 bg-contrast-0 border border-neutral-300 rounded-xl font-semibold text-neutral-950 cursor-pointer">Load
+                        More</Button>
                 </section>
             </main>
             <Footer/>

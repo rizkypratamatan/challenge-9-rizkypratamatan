@@ -62,27 +62,37 @@
     --spacing-min10_: -0.625rem;
     --spacing-min8_: -0.5rem;
     --spacing-3_: 0.188rem;
+    --spacing-9_: 0.563rem;
     --spacing-9_19_: 0.574rem;
     --spacing-12_: 0.75rem;
     --spacing-18_: 1.125rem;
+    --spacing-26_: 1.625rem;
     --spacing-30_: 1.875rem;
+    --spacing-38_: 2.375rem;
     --spacing-44_: 2.75rem;
     --spacing-48_: 3rem;
     --spacing-56_: 3.5rem;
+    --spacing-64_: 4rem;
     --spacing-68_: 4.25rem;
+    --spacing-74_: 4.625rem;
     --spacing-77_: 4.813rem;
     --spacing-80_: 5rem;
     --spacing-84_: 5.25rem;
     --spacing-120_: 7.5rem;
     --spacing-132_: 8.25rem;
     --spacing-150_: 9.375rem;
+    --spacing-160_: 10rem;
+    --spacing-167_: 10.438rem;
     --spacing-180_: 11.25rem;
     --spacing-220_: 13.75rem;
+    --spacing-266_: 16.625rem;
     --spacing-300_: 18.75rem;
+    --spacing-312_: 19.5rem;
     --spacing-340_: 21.25rem;
     --spacing-380_: 23.75rem;
     --spacing-451_: 28.188rem;
     --spacing-623_: 38.938rem;
+    --text-32_: 2rem;
     --text-56_: 3.5rem;
     --shadow-25: 0px 0px 20px 0px #cbcaca40;
     --color-sidebar-ring: var(--sidebar-ring);
@@ -122,51 +132,29 @@
     --radius-xl: calc(var(--radius) + 4px);
 }
 
-@layer base {
-    body {
-        @apply bg-neutral-100;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
     }
-}
-
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    body {
+        @apply bg-neutral-100 text-neutral-950;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    main {
+        @apply flex flex-col px-120_ py-132_;
+    }
+}
+
+@layer components {
+    .line {
+        @apply border-b border-neutral-300;
+    }
+
+    .product-description ul {
+        @apply mt-3 pl-5 list-disc;
     }
 }
