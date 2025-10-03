@@ -9,11 +9,12 @@ import {
     Pagination,
     PaginationContent,
     PaginationEllipsis,
-    PaginationItem, PaginationLink, PaginationNext,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
-import Image from "next/image";
 import React from "react";
 
 
@@ -46,7 +47,8 @@ const Order: React.FC = () => {
                                             <p className="leading-7 text-sm">Total Payment</p>
                                             <p className="leading-7.5 font-bold">Total Payment</p>
                                         </div>
-                                        <Button className="basis-160_ h-10 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-bold text-neutral-950">Cancel Order</Button>
+                                        <Button className="basis-160_ h-10 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-bold text-neutral-950">Cancel
+                                            Order</Button>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center px-10 py-3 bg-contrast-0 rounded-xl shadow-25">
@@ -54,16 +56,16 @@ const Order: React.FC = () => {
                                     <Pagination className="w-auto mx-0">
                                         <PaginationContent>
                                             <PaginationItem>
-                                                <PaginationPrevious href="#" />
+                                                <PaginationPrevious href="#"/>
                                             </PaginationItem>
                                             <PaginationItem>
                                                 <PaginationLink href="#">1</PaginationLink>
                                             </PaginationItem>
                                             <PaginationItem>
-                                                <PaginationEllipsis />
+                                                <PaginationEllipsis/>
                                             </PaginationItem>
                                             <PaginationItem>
-                                                <PaginationNext href="#" />
+                                                <PaginationNext href="#"/>
                                             </PaginationItem>
                                         </PaginationContent>
                                     </Pagination>

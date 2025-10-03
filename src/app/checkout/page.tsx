@@ -4,26 +4,26 @@ import CheckoutItem from "@/components/CheckoutItem";
 import CheckoutPaymentSummary from "@/components/CheckoutPaymentSummary";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ResponsePage from "@/components/ResponsePage";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {Textarea} from "@/components/ui/textarea";
-import {CheckoutStatus} from "@/types/CheckoutStatus";
+import {StepStatus} from "@/types/StepStatus";
 import Image from "next/image";
-import Link from "next/link";
 import React, {useState} from "react";
 
 
 const Checkout: React.FC = () => {
-    const [status, setStatus] = useState<CheckoutStatus>(CheckoutStatus.Succeeded);
+    const [status, setStatus] = useState<StepStatus>(StepStatus.OnProcess);
 
     return (
         <>
             <Header/>
             <main className="flex-col gap-6">
-                {status === CheckoutStatus.OnProcess && <>
+                {status === StepStatus.OnProcess && <>
                     <h2 className="text-32_ font-bold">Checkout</h2>
                     <div className="flex gap-8 items-start">
                         <section className="grow flex flex-col gap-6">
@@ -101,22 +101,10 @@ const Checkout: React.FC = () => {
                         </section>
                     </div>
                 </>}
-                {status === CheckoutStatus.Succeeded && <div className="flex flex-col gap-8 mx-auto my-[15vh]">
-                    <Image className="mx-auto" src={'/images/image-checkout-succeeded.png'} width={200} height={200} alt={'Checkout Succeeded Image'}/>
-                    <div className="flex flex-col gap-1 text-center">
-                        <p className="text-lg font-bold">Order Placed Successfully!</p>
-                        <p>We’ve received your order and will notify you once it’s shipped.</p>
-                    </div>
-                    <Link className="w-305_ h-48_ mx-auto p-2 bg-neutral-950 rounded-lg leading-8 font-semibold text-contrast-0 text-center" href={'#'}>Go to My Orders</Link>
-                </div>}
-                {status === CheckoutStatus.Failed && <div className="flex flex-col gap-8 mx-auto my-[15vh]">
-                    <Image className="mx-auto" src={'/images/image-checkout-failed.png'} width={200} height={200} alt={'Checkout Failed Image'}/>
-                    <div className="flex flex-col gap-1 text-center">
-                        <p className="text-lg font-bold">Oops, something went wrong</p>
-                        <p>Something went wrong during checkout. Please review your details and retry.</p>
-                    </div>
-                    <Link className="w-305_ h-48_ mx-auto p-2 bg-neutral-950 rounded-lg leading-8 font-semibold text-contrast-0 text-center" href={'#'}>Back to Home</Link>
-                </div>}
+                {status === StepStatus.Succeeded &&
+                    <ResponsePage src={'/images/image-checkout-succeeded.png'} alt={'Checkout Succeeded Image'} heading={'Order Placed Successfully!'} description={'We’ve received your order and will notify you once it’s shipped.'} href={'#'} linkText={'Go to My Orders'}/>}
+                {status === StepStatus.Failed &&
+                    <ResponsePage src={'/images/image-checkout-failed.png'} alt={'Checkout Failed Image'} heading={'Oops, something went wrong'} description={'Something went wrong during checkout. Please review your details and retry.'} href={'#'} linkText={'Back to Home'}/>}
             </main>
             <Footer/>
         </>
