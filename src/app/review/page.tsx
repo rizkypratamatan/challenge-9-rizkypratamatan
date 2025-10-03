@@ -1,0 +1,81 @@
+import BuyerSidebar from "@/components/BuyerSidebar";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import OrderItem from "@/components/OrderItem";
+import OrderStore from "@/components/OrderStore";
+import Search from "@/components/Search";
+import Image from "next/image";
+import React from "react";
+
+
+const Review: React.FC = () => {
+    return (
+        <>
+            <Header/>
+            <main className="gap-6 items-start">
+                <BuyerSidebar/>
+                <section className="grow flex flex-col gap-4">
+                    <h2 className="text-32_ font-bold">Review</h2>
+                    <Search grow={false}/>
+                    <div className="flex flex-col gap-3 p-5 bg-contrast-0 rounded-xl">
+                        <OrderStore/>
+                        <div className="line"></div>
+                        <OrderItem/>
+                        <div className="line"></div>
+                        <div className="flex flex-col gap-1">
+                            <h3 className="text-sm font-semibold">My Review</h3>
+                            <div className="flex gap-0.5">
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                            </div>
+                            <p className="text-sm">Lorem ipsum dolor sit amet consectetur. Ullamcorper tellus quam
+                                congue id. At neque massa ultrices ultrices nulla aliquet.</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 p-5 bg-contrast-0 rounded-xl">
+                        <OrderStore/>
+                        <div className="line"></div>
+                        <OrderItem/>
+                        <div className="line"></div>
+                        <div className="flex flex-col gap-1">
+                            <h3 className="text-sm font-semibold">My Review</h3>
+                            <div className="flex gap-0.5">
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                            </div>
+                            <p className="text-sm">Lorem ipsum dolor sit amet consectetur. Ullamcorper tellus quam
+                                congue id. At neque massa ultrices ultrices nulla aliquet.</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 p-5 bg-contrast-0 rounded-xl">
+                        <OrderStore/>
+                        <div className="line"></div>
+                        <OrderItem/>
+                        <div className="line"></div>
+                        <div className="flex flex-col gap-1">
+                            <h3 className="text-sm font-semibold">My Review</h3>
+                            <div className="flex gap-0.5">
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                                <Image src={'/images/icon-star.png'} width={24} height={24} alt={'Star Icon'}/>
+                            </div>
+                            <p className="text-sm">Lorem ipsum dolor sit amet consectetur. Ullamcorper tellus quam
+                                congue id. At neque massa ultrices ultrices nulla aliquet.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <Footer/>
+        </>
+    );
+};
+
+export default Review;

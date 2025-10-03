@@ -1,4 +1,5 @@
 import Logo from "@/components/Logo";
+import Search from "@/components/Search";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import Image from "next/image";
 import React from "react";
@@ -14,10 +15,7 @@ const Header: React.FC = () => {
                         <Image src={'/images/icon-grid.png'} width={20} height={20} alt={'Grid Icon'}/>
                         <p className="text-sm">Catalog</p>
                     </div>
-                    <div className="grow flex gap-1.5 items-center h-44_ px-4 py-2 border border-neutral-300 rounded-xl">
-                        <Image src={'/images/icon-search.png'} width={20} height={20} alt={'Search Icon'}/>
-                        <input className="grow" type="text" placeholder="Search"/>
-                    </div>
+                    <Search grow={true}/>
                 </div>
                 <div className="flex gap-8 items-center">
                     <div className="relative">
