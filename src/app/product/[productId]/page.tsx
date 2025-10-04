@@ -1,10 +1,11 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MenuMobile from "@/components/MenuMobile";
 import ProductCard from "@/components/ProductCard";
 import ProductReview from "@/components/ProductReview";
+import QuantityAdjust from "@/components/QuantityAdjust";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,20 +15,21 @@ const Product: React.FC = () => {
     return (
         <>
             <Header/>
+            <MenuMobile/>
             <main className="flex-col gap-12 site">
                 <section className="flex flex-col gap-6">
-                    <div className="flex gap-2 items-center h-30_">
+                    <div className="flex gap-2 items-center h-7.5">
                         <Link className="font-semibold" href={'/'}>Home</Link>
                         <Image src={'/images/icon-chevron-right.png'} width={16} height={16} alt={'Chevron Right Icon'}/>
                         <Link className="font-semibold" href={'/'}>Detail</Link>
                         <Image src={'/images/icon-chevron-right.png'} width={16} height={16} alt={'Chevron Right Icon'}/>
-                        <p>Sneakers Court Minimalis</p>
+                        <p className="truncate">Sneakers Court Minimalis</p>
                     </div>
-                    <div className="flex gap-7">
-                        <div className="flex flex-col gap-4 overflow-x-hidden">
-                            <Image className="rounded-xl" src={'/images/products/image-product.png'} width={402} height={402} alt={'Product Thumbnail'}/>
+                    <div className="flex flex-col gap-7 md:flex-row">
+                        <div className="flex flex-col gap-4 min-w-305_ max-w-402_ mx-auto overflow-x-hidden">
+                            <Image className="mx-auto rounded-xl" src={'/images/products/image-product.png'} width={402} height={402} alt={'Product Thumbnail'}/>
                             <div className="grid grid-cols-5 gap-2 w-[105%] ml-0.5 mb-0.5">
-                                <Image className="p-1 rounded-xl outline outline-1 outline-solid outline-neutral-950" src={'/images/products/image-product.png'} width={74} height={74} alt={'Product Thumbnail'}/>
+                                <Image className="p-1 rounded-xl outline outline-solid outline-neutral-950" src={'/images/products/image-product.png'} width={74} height={74} alt={'Product Thumbnail'}/>
                                 <Image className="p-1 rounded-xl" src={'/images/products/image-product.png'} width={74} height={74} alt={'Product Thumbnail'}/>
                                 <Image className="p-1 rounded-xl" src={'/images/products/image-product.png'} width={74} height={74} alt={'Product Thumbnail'}/>
                                 <Image className="p-1 rounded-xl" src={'/images/products/image-product.png'} width={74} height={74} alt={'Product Thumbnail'}/>
@@ -62,28 +64,24 @@ const Product: React.FC = () => {
                             </div>
                             <div className="line"></div>
                             <div className="flex justify-between items-center">
-                                <div className="grow flex gap-4">
-                                    <Avatar className="w-64_ h-64_">
+                                <div className="grow flex gap-4 items-center">
+                                    <Avatar className="w-12 h-12 md:w-64_ md:h-64_">
                                         <AvatarImage src={'/images/avatars/seller/avatar-default.png'} width={64} height={64} alt={'Seller Profile Picture'}/>
                                         <AvatarFallback>Toko Barokah Jaya</AvatarFallback>
                                     </Avatar>
                                     <div className="flex flex-col justify-center">
-                                        <p className="leading-30_ font-bold">Toko Barokah Jaya</p>
-                                        <p className="leading-30_">Jakarta Selatan</p>
+                                        <p className="leading-7.5 font-bold truncate">Toko Barokah Jaya</p>
+                                        <p className="leading-7.5 truncate">Jakarta Selatan</p>
                                     </div>
                                 </div>
-                                <Button className="w-160_ h-48_">See Store</Button>
+                                <Button className="w-96_ h-10 md:w-160_ md:h-12">See Store</Button>
                             </div>
                             <div className="line"></div>
                             <div className="flex gap-4 items-center">
                                 <p className="font-semibold">Quantity</p>
-                                <div className="flex gap-2 items-center px-3 py-2 border border-neutral-300 rounded-xl">
-                                    <Image src={'/images/icon-minus.png'} width={24} height={24} alt={'Minus Icon'}/>
-                                    <Input className="w-10 h-26_ p-0 border-none text-lg font-bold text-center shadow-none" type="text" value="1"/>
-                                    <Image src={'/images/icon-plus.png'} width={24} height={24} alt={'Plus Icon'}/>
-                                </div>
+                                <QuantityAdjust/>
                             </div>
-                            <Button className="w-312_ h-48_ font-semibold">
+                            <Button className="w-312_ h-12 font-semibold">
                                 <Image src={'/images/icon-add-to-cart.png'} width={20} height={20} alt={'Add to Cart Icon'}/>
                                 Add to Cart
                             </Button>
@@ -103,14 +101,14 @@ const Product: React.FC = () => {
                     <div className="line"></div>
                     <ProductReview/>
                     <div className="text-center">
-                        <Button className="w-220_ h-48_ p-2 bg-contrast-0 border border-neutral-300 rounded-xl font-semibold text-neutral-950 cursor-pointer">Load
+                        <Button className="w-220_ h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-xl font-semibold text-neutral-950 cursor-pointer">Load
                             More</Button>
                     </div>
                 </section>
                 <div className="line"></div>
                 <section className="flex flex-col gap-4">
                     <h2 className="text-32_ font-bold">Related Product</h2>
-                    <div className="grid grid-cols-4 gap-5">
+                    <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
                         <ProductCard/>
                         <ProductCard/>
                         <ProductCard/>

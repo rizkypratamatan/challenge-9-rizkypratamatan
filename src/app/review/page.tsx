@@ -1,6 +1,7 @@
 import BuyerSidebar from "@/components/BuyerSidebar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MenuMobile from "@/components/MenuMobile";
 import OrderItem from "@/components/OrderItem";
 import OrderStore from "@/components/OrderStore";
 import Search from "@/components/Search";
@@ -12,6 +13,7 @@ const Review: React.FC = () => {
     return (
         <>
             <Header/>
+            <MenuMobile/>
             <main className="gap-6 items-start site">
                 <BuyerSidebar/>
                 <section className="grow flex flex-col gap-4">

@@ -27,7 +27,7 @@ const StoreOrder: React.FC = () => {
                 <h2 className="px-6 pt-6 text-28_ font-bold">Order List</h2>
                 <div className="flex flex-col gap-4 p-6">
                     <div className="flex justify-between">
-                        <div className="basis-254_ flex gap-1.5 items-center h-48_ px-4 py-2 bg-contrast-0 border border-neutral-300 rounded-xl">
+                        <div className="basis-254_ flex gap-1.5 items-center h-12 px-4 py-2 bg-contrast-0 border border-neutral-300 rounded-xl">
                             <Image src={'/images/icon-calendar.png'} width={20} height={20} alt={'Calendar Icon'}/>
                             <p className="text-sm">30 Days ago</p>
                         </div>

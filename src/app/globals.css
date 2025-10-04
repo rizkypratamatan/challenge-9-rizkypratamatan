@@ -59,8 +59,7 @@
     --color-neutral-700: var(--neutral-700);
     --color-neutral-950: var(--neutral-950);
     --color-red: var(--red);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --font-sfpro: 'SFPro', sans-serif;
     --spacing-min10_: -0.625rem;
     --spacing-min8_: -0.5rem;
     --spacing-3_: 0.188rem;
@@ -69,10 +68,7 @@
     --spacing-12_: 0.75rem;
     --spacing-18_: 1.125rem;
     --spacing-26_: 1.625rem;
-    --spacing-30_: 1.875rem;
     --spacing-38_: 2.375rem;
-    --spacing-44_: 2.75rem;
-    --spacing-48_: 3rem;
     --spacing-56_: 3.5rem;
     --spacing-64_: 4rem;
     --spacing-68_: 4.25rem;
@@ -80,36 +76,50 @@
     --spacing-77_: 4.813rem;
     --spacing-80_: 5rem;
     --spacing-84_: 5.25rem;
+    --spacing-93_: 5.813rem;
+    --spacing-96_: 6rem;
+    --spacing-101_: 6.313rem;
     --spacing-104_: 6.5rem;
     --spacing-120_: 7.5rem;
+    --spacing-122_: 7.625rem;
     --spacing-132_: 8.25rem;
+    --spacing-144_: 9rem;
     --spacing-150_: 9.375rem;
+    --spacing-157_: 9.813rem;
     --spacing-160_: 10rem;
     --spacing-167_: 10.438rem;
     --spacing-168_: 10.5rem;
+    --spacing-169_: 10.563rem;
     --spacing-180_: 11.25rem;
     --spacing-182_: 11.375rem;
+    --spacing-183_: 11.438rem;
+    --spacing-185_: 11.563rem;
     --spacing-216_: 13.5rem;
     --spacing-220_: 13.75rem;
     --spacing-227_: 14.188rem;
+    --spacing-236_: 14.75rem;
     --spacing-240_: 15rem;
     --spacing-254_: 15.875rem;
     --spacing-261_: 16.313rem;
     --spacing-262_: 16.375rem;
     --spacing-266_: 16.625rem;
+    --spacing-298_: 18.625rem;
     --spacing-300_: 18.75rem;
     --spacing-305_: 19.063rem;
     --spacing-312_: 19.5rem;
     --spacing-336_: 21rem;
     --spacing-340_: 21.25rem;
     --spacing-352_: 22rem;
+    --spacing-376_: 23.5rem;
     --spacing-380_: 23.75rem;
     --spacing-389_: 24.313rem;
+    --spacing-402_: 25.125rem;
     --spacing-404_: 25.25rem;
     --spacing-451_: 28.188rem;
     --spacing-457_: 28.563rem;
     --spacing-623_: 38.938rem;
     --spacing-760_: 47.5rem;
+    --text-10_: 0.625rem;
     --text-28_: 1.75rem;
     --text-32_: 2rem;
     --text-56_: 3.5rem;
@@ -145,10 +155,10 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    --radius-sm: calc(var(--radius) - 4px);
+    /*--radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) + 4px);
+    --radius-xl: calc(var(--radius) + 4px);*/
 }
 
 @media (prefers-color-scheme: dark) {
@@ -159,16 +169,29 @@
 }
 
 @layer base {
+    @font-face {
+        font-family: 'SFPro';
+        src: url('/fonts/sfpro.woff2') format('woff2');
+    }
+
     body {
-        @apply bg-neutral-100 text-neutral-950;
+        @apply bg-neutral-100 font-sfpro text-neutral-950;
     }
 
     main.site {
-        @apply flex px-120_ py-132_;
+        @apply flex px-6 py-132_ md:px-56_ lg:px-120_;
+    }
+
+    button {
+        @apply cursor-pointer;
     }
 }
 
 @layer components {
+    .hide-filter {
+        @apply translate-x-[-18.625rem] md:translate-x-0;
+    }
+
     .line {
         @apply border-b border-neutral-300;
     }
@@ -197,7 +220,7 @@
         border-radius: 0;
         box-shadow: none !important;
         color: var(--color-neutral-950);
-        height: var(--spacing-48_);
+        height: 3rem;
         font-size: 0.875rem;
     }
 

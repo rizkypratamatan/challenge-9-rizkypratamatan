@@ -52,7 +52,7 @@ const StoreProductsDetail: React.FC<Props> = async({params}) => {
                             </div>
                         </div>
                     </div>
-                    <Button className="h-48_ text-sm font-bold">Save</Button>
+                    <Button className="h-12 text-sm font-bold">Save</Button>
                 </div>
                 <ResponsePage src={'/images/image-product-box.png'} alt={'Product Box Image'} heading={'No Product Yet'} description={'Start adding your items to showcase and reach more customers.'} href={'#'} linkText={'Add Product'}/>
             </main>

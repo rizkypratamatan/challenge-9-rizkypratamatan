@@ -20,7 +20,7 @@ const ResponsePage: React.FC<Props> = ({src, alt, heading, description, href, li
                 <p className="text-lg font-bold">{heading}</p>
                 <p>{description}</p>
             </div>
-            <Link className="w-305_ h-48_ mx-auto p-2 bg-neutral-950 rounded-lg leading-8 font-semibold text-contrast-0 text-center" href={href}>{linkText}</Link>
+            <Link className="w-305_ h-12 mx-auto p-2 bg-neutral-950 rounded-lg leading-8 font-semibold text-contrast-0 text-center" href={href}>{linkText}</Link>
         </div>
     );
 };

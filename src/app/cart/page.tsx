@@ -2,6 +2,7 @@ import CartItem from "@/components/CartItem";
 import CartSeller from "@/components/CartSeller";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MenuMobile from "@/components/MenuMobile";
 import {Button} from "@/components/ui/button";
 import {Checkbox} from "@/components/ui/checkbox";
 import React from "react";
@@ -11,11 +12,12 @@ const Cart: React.FC = () => {
     return (
         <>
             <Header/>
+            <MenuMobile/>
             <main className="gap-10 items-start site">
                 <section className="grow flex flex-col gap-6">
                     <h2 className="text-32_ font-bold">Cart</h2>
                     <div className="flex gap-3 items-center">
-                        <Checkbox/><p className="leading-30_ font-medium">Select All</p>
+                        <Checkbox/><p className="leading-7.5 font-medium">Select All</p>
                     </div>
                     <div className="flex flex-col gap-4 p-4 border border-neutral-300 rounded-xl">
                         <CartSeller/>
@@ -41,7 +43,7 @@ const Cart: React.FC = () => {
                         <p className="text-lg">Total</p>
                         <p className="text-lg font-bold">Rp275.000</p>
                     </div>
-                    <Button className="h-48_ font-semibold">Checkout</Button>
+                    <Button className="h-12 font-semibold">Checkout</Button>
                 </section>
             </main>
             <Footer/>

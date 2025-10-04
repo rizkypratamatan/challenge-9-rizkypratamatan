@@ -4,6 +4,7 @@ import CheckoutItem from "@/components/CheckoutItem";
 import CheckoutPaymentSummary from "@/components/CheckoutPaymentSummary";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MenuMobile from "@/components/MenuMobile";
 import ResponsePage from "@/components/ResponsePage";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
@@ -22,6 +23,7 @@ const Checkout: React.FC = () => {
     return (
         <>
             <Header/>
+            <MenuMobile/>
             <main className="flex-col gap-6 site">
                 {status === StepStatus.OnProcess && <>
                     <h2 className="text-32_ font-bold">Checkout</h2>
@@ -96,7 +98,7 @@ const Checkout: React.FC = () => {
                                 <CheckoutPaymentSummary title={'Total Price of Goods'} price={'Rp1.100.000'} total={false}/>
                                 <CheckoutPaymentSummary title={'Shipping Cost'} price={'Rp10.000'} total={false}/>
                                 <CheckoutPaymentSummary title={'Total'} price={'Rp1.110.000'} total={true}/>
-                                <Button className="h-48_ font-semibold">Pay Now</Button>
+                                <Button className="h-12 font-semibold">Pay Now</Button>
                             </div>
                         </section>
                     </div>

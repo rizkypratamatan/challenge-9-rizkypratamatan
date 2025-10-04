@@ -25,7 +25,7 @@ const StoreProducts: React.FC = () => {
                 <h2 className="px-6 pt-6 text-28_ font-bold">Products</h2>
                 <div className="flex flex-col gap-4 p-6">
                     <div className="flex justify-between">
-                        <Button className="h-48_">
+                        <Button className="h-12">
                             <Image src={'/images/icon-plus-white.png'} width={20} height={20} alt={'Plus Icon'}/>
                             Add Product
                         </Button>

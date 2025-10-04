@@ -9,7 +9,7 @@ const CartSeller: React.FC = () => {
             <Checkbox/>
             <div className="flex gap-1.5 items-center">
                 <Image src={'/images/icon-store.png'} width={20} height={20} alt={'Store Icon'}/>
-                <p className="leading-30_ font-semibold">Toko Barokah Jaya</p>
+                <p className="leading-7.5 font-semibold">Toko Barokah Jaya</p>
             </div>
         </div>
     );

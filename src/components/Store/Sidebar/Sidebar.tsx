@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
                 <MenuItem src={'/images/icon-star-outline.png'} alt={'Star Outline Icon'} text={'Reviews'} active={false}/>
                 <MenuItem src={'/images/icon-gear.png'} alt={'Gear Icon'} text={'Settings'} active={false}/>
             </nav>
-            <div className="fixed bottom-4 flex gap-2 items-center w-182_ h-48_ px-4 py-2 rounded-md">
+            <div className="fixed bottom-4 flex gap-2 items-center w-182_ h-12 px-4 py-2 rounded-md">
                 <Image src={'/images/icon-logout.png'} width={20} height={20} alt={'Logout Icon'}/>
                 <p className="text-sm text-red">Logout</p>
             </div>

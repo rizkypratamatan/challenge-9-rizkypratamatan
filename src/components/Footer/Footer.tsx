@@ -6,10 +6,10 @@ import React from "react";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="flex justify-between px-150_ py-80_ border-t border-neutral-300">
+        <footer className="flex flex-col gap-4 justify-between px-4 py-80_ border-t border-neutral-300 md:flex-row lg:px-10 xl:px-150_">
             <div className="flex flex-col gap-10 max-w-380_">
                 <div className="flex flex-col gap-5.5">
-                    <Logo/>
+                    <Logo dynamic={false}/>
                     <p>Explore a realm of style with our fashion e-commerce platform, where shopping is effortless.
                         Experience a smooth journey with an extensive selection of trendy apparel, all delivered
                         directly to your home.</p>

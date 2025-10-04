@@ -12,8 +12,8 @@ const ProductReview: React.FC = () => {
                     <AvatarFallback>John Doe</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col justify-center">
-                    <p className="leading-30_ font-bold">John Doe</p>
-                    <p className="leading-30_">25 August 2025, 13:38</p>
+                    <p className="leading-7.5 font-bold">John Doe</p>
+                    <p className="leading-7.5">25 August 2025, 13:38</p>
                 </div>
             </div>
             <div className="flex flex-col gap-2">

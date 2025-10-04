@@ -31,7 +31,7 @@ const StoreSettings: React.FC = () => {
                                         <p className="text-sm font-semibold">Store Domain</p>
                                         <p className="text-sm">www.shirt.com/tokobarokahjaya</p>
                                     </div>
-                                    <Button className="h-48_ p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950">Change
+                                    <Button className="h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950">Change
                                         Profile</Button>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ const StoreSettings: React.FC = () => {
                                         volutpat sit ut ut molestie suspendisse odio maecenas. Quam cursus commodo a
                                         donec potenti feugiat.</p>
                                 </div>
-                                <Button className="basis-261_ h-48_ p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950">Change
+                                <Button className="basis-261_ h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950">Change
                                     Address</Button>
                             </div>
                         </TabsContent>
