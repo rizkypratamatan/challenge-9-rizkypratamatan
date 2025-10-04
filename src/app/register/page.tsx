@@ -15,7 +15,7 @@ const Register: React.FC = () => {
 
     return (
         <main className="flex flex-col gap-6 mx-6 mt-[15vh] p-6 border border-neutral-200 rounded-2xl shadow-25 site sm:max-w-451_ sm:mx-auto">
-            <Logo/>
+            <Logo dynamic={false}/>
             <PageTitle title={'Register'} description={'Just a few steps away from your next favorite purchase'}/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset className="flex flex-col gap-6">
