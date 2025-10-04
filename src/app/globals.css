@@ -80,6 +80,7 @@
     --spacing-77_: 4.813rem;
     --spacing-80_: 5rem;
     --spacing-84_: 5.25rem;
+    --spacing-104_: 6.5rem;
     --spacing-120_: 7.5rem;
     --spacing-132_: 8.25rem;
     --spacing-150_: 9.375rem;
@@ -87,18 +88,29 @@
     --spacing-167_: 10.438rem;
     --spacing-168_: 10.5rem;
     --spacing-180_: 11.25rem;
+    --spacing-182_: 11.375rem;
+    --spacing-216_: 13.5rem;
     --spacing-220_: 13.75rem;
     --spacing-227_: 14.188rem;
+    --spacing-240_: 15rem;
+    --spacing-254_: 15.875rem;
+    --spacing-261_: 16.313rem;
+    --spacing-262_: 16.375rem;
     --spacing-266_: 16.625rem;
     --spacing-300_: 18.75rem;
     --spacing-305_: 19.063rem;
     --spacing-312_: 19.5rem;
+    --spacing-336_: 21rem;
     --spacing-340_: 21.25rem;
     --spacing-352_: 22rem;
     --spacing-380_: 23.75rem;
     --spacing-389_: 24.313rem;
+    --spacing-404_: 25.25rem;
     --spacing-451_: 28.188rem;
+    --spacing-457_: 28.563rem;
     --spacing-623_: 38.938rem;
+    --spacing-760_: 47.5rem;
+    --text-28_: 1.75rem;
     --text-32_: 2rem;
     --text-56_: 3.5rem;
     --shadow-25: 0px 0px 20px 0px #cbcaca40;
@@ -151,7 +163,7 @@
         @apply bg-neutral-100 text-neutral-950;
     }
 
-    main {
+    main.site {
         @apply flex px-120_ py-132_;
     }
 }
@@ -161,8 +173,20 @@
         @apply border-b border-neutral-300;
     }
 
+    .line-vertical {
+        @apply h-64_ border-r border-neutral-300;
+    }
+
     .product-description ul {
         @apply mt-3 pl-5 list-disc;
+    }
+
+    .product-list th {
+        @apply p-2 border-b border-neutral-200 text-left;
+    }
+
+    .product-list td {
+        @apply p-2 border-b border-neutral-200 text-sm;
     }
 }
 
@@ -180,5 +204,20 @@
     .order-tab-nav[data-state="active"] {
         border-bottom: var(--spacing-3_) solid var(--color-neutral-950);
         font-weight: 600;
+    }
+
+    .store-header {
+        left: 13.5rem;
+        width: calc(100% - 13.5rem);
+    }
+
+    .store-sidebar-menu {
+        height: calc(100% - 2rem - 4rem - 3rem);
+        overflow-y: auto;
+    }
+
+    .store-content {
+        margin-left: 13.5rem;
+        width: calc(100% - 13.5rem);
     }
 }

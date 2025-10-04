@@ -12,11 +12,11 @@ const Review: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="gap-6 items-start">
+            <main className="gap-6 items-start site">
                 <BuyerSidebar/>
                 <section className="grow flex flex-col gap-4">
                     <h2 className="text-32_ font-bold">Review</h2>
-                    <Search grow={false}/>
+                    <Search/>
                     <div className="flex flex-col gap-3 p-5 bg-contrast-0 rounded-xl">
                         <OrderStore/>
                         <div className="line"></div>

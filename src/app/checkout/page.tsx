@@ -22,7 +22,7 @@ const Checkout: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="flex-col gap-6">
+            <main className="flex-col gap-6 site">
                 {status === StepStatus.OnProcess && <>
                     <h2 className="text-32_ font-bold">Checkout</h2>
                     <div className="flex gap-8 items-start">

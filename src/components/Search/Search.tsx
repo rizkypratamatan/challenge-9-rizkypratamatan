@@ -3,12 +3,12 @@ import React from "react";
 
 
 type Props = {
-    grow: boolean;
+    className?: string;
 };
 
-const Search: React.FC<Props> = ({grow}) => {
+const Search: React.FC<Props> = ({className}) => {
     return (
-        <div className={`${grow ? 'grow' : ''} flex gap-1.5 items-center h-44_ px-4 py-2 bg-contrast-0 border border-neutral-300 rounded-xl`}>
+        <div className={`${className} flex gap-1.5 items-center h-44_ px-4 py-2 bg-contrast-0 border border-neutral-300 rounded-xl`}>
             <Image src={'/images/icon-search.png'} width={20} height={20} alt={'Search Icon'}/>
             <input className="grow" type="text" placeholder="Search"/>
         </div>

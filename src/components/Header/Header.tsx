@@ -15,7 +15,7 @@ const Header: React.FC = () => {
                         <Image src={'/images/icon-grid.png'} width={20} height={20} alt={'Grid Icon'}/>
                         <p className="text-sm">Catalog</p>
                     </div>
-                    <Search grow={true}/>
+                    <Search className="grow"/>
                 </div>
                 <div className="flex gap-8 items-center">
                     <div className="relative">

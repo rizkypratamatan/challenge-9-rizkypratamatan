@@ -17,7 +17,7 @@ const StoreOpen: React.FC = () => {
     return (
         <>
             {status === StepStatus.OnProcess &&
-                <main className="flex flex-col gap-6 w-451_ mx-auto mt-[15vh] p-6 border border-neutral-200 rounded-2xl shadow-25">
+                <main className="flex flex-col gap-6 w-451_ mx-auto mt-[15vh] p-6 border border-neutral-200 rounded-2xl shadow-25 site">
                     <Logo/>
                     <PageTitle title={'Open Your Store Today'} description={'Start selling in minutes and reach thousands of customers instantly'}/>
                     <form>
@@ -31,7 +31,7 @@ const StoreOpen: React.FC = () => {
                                 <p className="font-bold uppercase">Store Profile</p>
                                 <input className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="City"/>
                                 <input className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="Postal Code"/>
-                                <Textarea className="resize-none" rows={5} placeholder="Detail Address"/>
+                                <Textarea className="px-3 py-2 border border-neutral-300 resize-none" rows={5} placeholder="Detail Address"/>
                             </div>
                             <div className="flex flex-col gap-4">
                                 <button className="h-48_ p-2 bg-neutral-950 rounded-lg text-contrast-0">Submit</button>
@@ -44,14 +44,14 @@ const StoreOpen: React.FC = () => {
                 </main>}
             {status === StepStatus.Succeeded && <>
                 <Header/>
-                <main className="flex-col gap-6">
+                <main className="flex-col gap-6 site">
                     <ResponsePage src={'/images/image-store-open-succeeded.png'} alt={'Open Store Succeeded Image'} heading={'Your Store is Ready!'} description={'Store created! Add products and start selling today.'} href={'#'} linkText={'Go to Dashboard'}/>
                 </main>
                 <Footer/>
             </>}
             {status === StepStatus.Failed && <>
                 <Header/>
-                <main className="flex-col gap-6">
+                <main className="flex-col gap-6 site">
                     <ResponsePage src={'/images/image-store-open-failed.png'} alt={'Open Store Failed Image'} heading={`Couldn't Create Store!`} description={'Something went wrong while creating your store. Please check your details and try again.'} href={'#'} linkText={'Back to Form'}/>
                 </main>
                 <Footer/>

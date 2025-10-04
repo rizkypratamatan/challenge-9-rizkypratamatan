@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="flex-col gap-10">
+            <main className="flex-col gap-10 site">
                 <section className="relative h-340_ bg-cream-0 rounded-2xl">
                     <Image className="absolute left-150_" src={'/images/image-hero.png'} width={376} height={376} alt={'Hero Image'}/>
                     <div className="absolute top-77_ right-300_ flex flex-col gap-4">

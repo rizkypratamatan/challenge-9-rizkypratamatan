@@ -11,7 +11,7 @@ const Cart: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="gap-10 items-start">
+            <main className="gap-10 items-start site">
                 <section className="grow flex flex-col gap-6">
                     <h2 className="text-32_ font-bold">Cart</h2>
                     <div className="flex gap-3 items-center">

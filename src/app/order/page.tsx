@@ -22,11 +22,11 @@ const Order: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="gap-6 items-start">
+            <main className="gap-6 items-start site">
                 <BuyerSidebar/>
                 <section className="grow flex flex-col gap-4">
                     <h2 className="text-32_ font-bold">Order List</h2>
-                    <Search grow={false}/>
+                    <Search/>
                     <Tabs className="flex flex-col gap-4" defaultValue="all">
                         <TabsList className="w-full h-auto p-3 bg-contrast-0 rounded-xl">
                             <TabsTrigger className="order-tab-nav" value="all">All Order</TabsTrigger>

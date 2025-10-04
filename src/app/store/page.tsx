@@ -10,7 +10,7 @@ const Store: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="flex flex-col gap-8">
+            <main className="flex flex-col gap-8 site">
                 <section className="flex justify-between items-center p-5 bg-contrast-0 border border-neutral-300 rounded-xl">
                     <div className="flex gap-4">
                         <Image src={'/images/image-store.png'} width={64} height={64} alt={'Store Thumbnail'}/>
