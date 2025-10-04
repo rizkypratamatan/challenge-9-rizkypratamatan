@@ -22,7 +22,7 @@ const Catalog: React.FC = () => {
             <main className="flex-col gap-6 site">
                 <h2 className="text-32_ font-bold">Catalog</h2>
                 <div className="flex flex-col gap-6 items-start md:flex-row">
-                    <section id="filter" className="fixed left-0 top-0 z-60 w-298_ h-[100vh] p-4 bg-contrast-0 overflow-y-auto duration-500 hide-filter md:static md:basis-266_ md:p-0 md:rounded-xl">
+                    <section id="filter" className="fixed left-0 top-0 z-60 w-298_ h-[100vh] p-4 bg-contrast-0 overflow-x-hidden overflow-y-auto duration-500 hide-filter md:static md:basis-266_ md:h-auto md:p-0 md:rounded-xl">
                         <div className="flex flex-col gap-6 py-4 border border-neutral-300 rounded-xl">
                             <div className="flex flex-col gap-2.5 px-4">
                                 <p className="font-bold uppercase">Filter</p>
