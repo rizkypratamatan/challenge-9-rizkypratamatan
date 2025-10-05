@@ -1,10 +1,18 @@
 import QuantityAdjust from "@/components/QuantityAdjust";
 import {Checkbox} from "@/components/ui/checkbox";
+import {useApp} from "@/providers/ContextProvider";
+import {ContextData} from "@/types/interfaces/ContextData";
 import Image from "next/image";
 import React from "react";
 
 
-const CartItem: React.FC = () => {
+type Props = {
+    index: number;
+};
+
+const CartItem: React.FC<Props> = ({index}) => {
+    const context: ContextData | undefined = useApp();
+
     return (
         <div className="flex justify-between items-center">
             <div className="grow flex gap-3">
@@ -21,7 +29,7 @@ const CartItem: React.FC = () => {
                 <h4 className="text-xl font-bold text-right">Rp275.000</h4>
                 <div className="flex gap-4 items-center">
                     <Image src={'/images/icon-trash.png'} width={24} height={24} alt={'Trash Icon'}/>
-                    <QuantityAdjust/>
+                    <QuantityAdjust index={index} quantities={context?.quantities!} setQuantities={context?.setQuantities!}/>
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 import {apiClient} from "@/lib/api-client";
-import {StoreOpenRequest} from "@/types/StoreOpenRequest";
+import {StoreOpenRequest} from "@/types/interfaces/StoreOpenRequest";
 
 
 export const storeOpenService = async(params: StoreOpenRequest) => {
-    const formData = new FormData();
+    const formData: FormData = new FormData();
     formData.append('name', params.name);
     formData.append('address', params.address);
 

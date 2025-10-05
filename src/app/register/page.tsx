@@ -22,10 +22,11 @@ const Register: React.FC = () => {
                     <div className="flex flex-col gap-4">
                         <Input {...register('name')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="Name"/>
                         {errors.name && <p className="text-sm text-red">{errors.name.message}</p>}
-                        <Input {...register('phoneNumber')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="Phone Number"/>
-                        {errors.phoneNumber && <p className="text-sm text-red">{errors.phoneNumber.message}</p>}
                         <Input {...register('email')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="Email"/>
                         {errors.email && <p className="text-sm text-red">{errors.email.message}</p>}
+                        <Input {...register('avatar')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg leading-9" type="file" placeholder="Avatar"/>
+                        {// @ts-ignore
+                            errors.avatar && <p className="text-sm text-red">{errors.avatar.message}</p>}
                         <div className="relative">
                             <Input {...register('password')} className="w-full h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="password" placeholder="Password"/>
                             <Image className="absolute top-18_ right-12_ cursor-pointer" src={'/images/icon-eye.png'} width={20} height={20} alt={'Eye Icon'}/>

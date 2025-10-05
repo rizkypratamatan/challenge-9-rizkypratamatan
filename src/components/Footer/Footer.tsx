@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@/components/Logo";
 import SocialMedia from "@/components/SocialMedia";
 import Link from "next/link";

@@ -3,15 +3,33 @@
 import Logo from "@/components/Logo";
 import Search from "@/components/Search";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {useCart} from "@/hooks/useCart";
 import {toggleMobileMenu} from "@/hooks/useToggle";
 import {getToken} from "@/hooks/useToken";
+import {CartItem} from "@/types/interfaces/CartItem";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 
 const Header: React.FC = () => {
     const token: string | null = getToken();
+
+    const [cart, setCart] = useState<number>(0);
+
+    const {data, isLoading, isError, error} = useCart();
+
+    useEffect(() => {
+        if(data) {
+            let count: number = 0;
+
+            data.data.items.map((item: CartItem) => {
+                count += item.qty;
+            });
+
+            setCart(count);
+        }
+    }, [data]);
 
     return (
         <header className="fixed z-50 w-full bg-contrast-0">
@@ -25,17 +43,18 @@ const Header: React.FC = () => {
                     <Search className="grow w-157_"/>
                 </div>
                 <div className="flex gap-3 items-center lg:gap-8">
-                    <div className="relative">
+                    <Link className="relative" href={'/cart/'}>
                         <Image src={'/images/icon-cart.png'} width={24} height={24} alt={'Cart Icon'}/>
-                        <div className="absolute top-min10_ right-min8_ flex justify-center items-center w-5 h-5 bg-red rounded-full text-xs font-semibold text-contrast-0">6</div>
-                    </div>
+                        {cart > 0 &&
+                            <div className="absolute top-min10_ right-min8_ flex justify-center items-center w-5 h-5 bg-red rounded-full text-xs font-semibold text-contrast-0">{cart}</div>}
+                    </Link>
                     <div className="hidden gap-3 lg:flex">
                         {token && <>
-                            <Link className="flex gap-2 items-center px-3 py-2 border border-neutral-300 rounded-full cursor-pointer" href={'/store/open/'}>
+                            <Link className="flex gap-2 items-center h-11 px-3 py-2 border border-neutral-300 rounded-full cursor-pointer" href={'/store/open/'}>
                                 <Image src={'/images/icon-store.png'} width={20} height={20} alt={'Store Icon'}/>
                                 <p className="text-sm font-bold">Open Store</p>
                             </Link>
-                            <div className="flex gap-2 items-center px-3 py-2 border border-neutral-300 rounded-full cursor-pointer">
+                            <div className="flex gap-2 items-center h-11 px-3 py-2 border border-neutral-300 rounded-full cursor-pointer">
                                 <Avatar>
                                     <AvatarImage src={'/images/avatars/avatar-default.png'} width={32} height={32} alt={'Profile Picture'}/>
                                     <AvatarFallback>John Doe</AvatarFallback>

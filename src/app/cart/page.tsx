@@ -1,3 +1,5 @@
+"use client";
+
 import CartItem from "@/components/CartItem";
 import CartSeller from "@/components/CartSeller";
 import Footer from "@/components/Footer";
@@ -5,10 +7,15 @@ import Header from "@/components/Header";
 import MenuMobile from "@/components/MenuMobile";
 import {Button} from "@/components/ui/button";
 import {Checkbox} from "@/components/ui/checkbox";
-import React from "react";
+import {useCart} from "@/hooks/useCart";
+import React, {useState} from "react";
 
 
 const Cart: React.FC = () => {
+    const [quantities, setQuantities] = useState<number[]>([1]);
+
+    const {data, isLoading, isError, error} = useCart();
+
     return (
         <>
             <Header/>
@@ -30,7 +37,6 @@ const Cart: React.FC = () => {
                         <CartItem/>
                         <div className="line"></div>
                         <CartItem/>
-
                     </div>
                     <div className="flex flex-col gap-4 p-4 border border-neutral-300 rounded-xl">
                         <CartSeller/>

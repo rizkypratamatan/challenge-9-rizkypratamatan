@@ -1,6 +1,6 @@
 import {registerValidation} from "@/lib/validations/registerValidation";
 import {registerService} from "@/services/registerService";
-import {RegisterRequest} from "@/types/RegisterRequest";
+import {RegisterRequest} from "@/types/interfaces/RegisterRequest";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useMutation} from "@tanstack/react-query";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
@@ -20,7 +20,6 @@ export const useRegister = () => {
         resolver: zodResolver(registerValidation),
         defaultValues: {
             name: '',
-            phoneNumber: '',
             email: '',
             password: '',
             passwordConfirm: ''

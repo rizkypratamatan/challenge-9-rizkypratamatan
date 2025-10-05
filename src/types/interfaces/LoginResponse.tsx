@@ -1,3 +1,6 @@
+import {BaseResponse} from "@/types/interfaces/BaseResponse";
+
+
 interface LoginResponseUser {
     id: string;
 
@@ -14,10 +17,6 @@ interface LoginResponseData {
 }
 
 
-export interface LoginResponse {
-    data: LoginResponseData,
-
-    message: string;
-
-    success: boolean;
+export interface LoginResponse extends BaseResponse {
+    data: LoginResponseData;
 }

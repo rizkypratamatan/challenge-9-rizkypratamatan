@@ -1,3 +1,4 @@
+import {ContextProvider} from "@/providers/ContextProvider";
 import TanstackProvider from "@/providers/TanstackProvider";
 import type {Metadata} from "next";
 import React from "react";
@@ -13,7 +14,9 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     return (
         <html lang="en">
         <body>
-        <TanstackProvider>{children}</TanstackProvider>
+        <ContextProvider>
+            <TanstackProvider>{children}</TanstackProvider>
+        </ContextProvider>
         </body>
         </html>
     );

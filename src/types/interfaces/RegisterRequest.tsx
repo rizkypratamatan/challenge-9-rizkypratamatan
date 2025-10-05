@@ -5,7 +5,5 @@ export interface RegisterRequest {
 
     password: string;
 
-    avatar: string;
-
-    avatarUrl: string;
+    avatar: FileList;
 }

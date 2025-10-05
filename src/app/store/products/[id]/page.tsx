@@ -1,3 +1,5 @@
+"use client";
+
 import ResponsePage from "@/components/ResponsePage";
 import Header from "@/components/Store/Header";
 import ProductDetailPhoto from "@/components/Store/ProductDetailPhoto";
@@ -7,16 +9,17 @@ import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {Textarea} from "@/components/ui/textarea";
 import Image from "next/image";
+import {useParams} from "next/navigation";
 import React from "react";
 
 
 type Props = {
-    params: Promise<{ productId: string }>
+    params: Promise<{ id: string }>
 };
 
-const StoreProductsDetail: React.FC<Props> = async({params}) => {
-    const productId = (await params).productId;
-    console.log(productId);
+const StoreProductsDetail: React.FC<Props> = ({params}) => {
+    const id: number = Number(useParams().id as string);
+    console.log(id);
 
     return (
         <>

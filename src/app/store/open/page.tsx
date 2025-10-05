@@ -10,7 +10,7 @@ import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {useStoreOpen} from "@/hooks/useStoreOpen";
-import {StepStatus} from "@/types/StepStatus";
+import {StepStatus} from "@/types/enums/StepStatus";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {useRouter} from "next/navigation";
 import React, {useState} from "react";

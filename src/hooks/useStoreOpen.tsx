@@ -1,6 +1,6 @@
 import {storeOpenValidation} from "@/lib/validations/storeOpenValidation";
 import {storeOpenService} from "@/services/storeOpenService";
-import {StoreOpenRequest} from "@/types/StoreOpenRequest";
+import {StoreOpenRequest} from "@/types/interfaces/StoreOpenRequest";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useMutation} from "@tanstack/react-query";
 import {useForm} from "react-hook-form";

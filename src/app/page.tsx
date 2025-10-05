@@ -1,14 +1,32 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MenuMobile from "@/components/MenuMobile";
 import ProductCard from "@/components/ProductCard";
 import {Button} from "@/components/ui/button";
+import {useProducts} from "@/hooks/useProducts";
+import {ProductSort} from "@/types/enums/ProductSort";
+import {Product} from "@/types/interfaces/Product";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 
 const Home: React.FC = () => {
+    const [index, setIndex] = useState<number>(1);
+    const [products, setProducts] = useState<Product[]>([]);
+
+    const {data, isLoading, isError, error} = useProducts(ProductSort.Newest, index);
+
+    useEffect(() => {
+        if(data) {
+            const currentProducts: Product[] = products;
+            currentProducts.concat(data.data.products);
+            setProducts(currentProducts);
+        }
+    }, [data]);
+
     return (
         <>
             <Header/>
@@ -29,14 +47,9 @@ const Home: React.FC = () => {
                 <section className="flex flex-col gap-10">
                     <h2 className="leading-11 text-4xl font-bold">Featured Product</h2>
                     <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
+                        {data?.data.products.map((product: Product, index: number) => {
+                            return <ProductCard key={index} product={product}/>
+                        })}
                     </div>
                 </section>
                 <section className="text-center">
