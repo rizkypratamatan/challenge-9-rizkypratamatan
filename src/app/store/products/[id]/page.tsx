@@ -22,7 +22,7 @@ const StoreProductsDetail: React.FC<Props> = ({params}) => {
     console.log(id);
 
     return (
-        <>
+        <React.Fragment>
             <Sidebar/>
             <Header/>
             <main className="pt-104_ store-content">
@@ -59,7 +59,7 @@ const StoreProductsDetail: React.FC<Props> = ({params}) => {
                 </div>
                 <ResponsePage src={'/images/image-product-box.png'} alt={'Product Box Image'} heading={'No Product Yet'} description={'Start adding your items to showcase and reach more customers.'} href={'#'} linkText={'Add Product'}/>
             </main>
-        </>
+        </React.Fragment>
     );
 };
 

@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     }, [data]);
 
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="flex-col gap-10 site">
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
                 </section>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 

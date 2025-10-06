@@ -6,28 +6,43 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {useCart} from "@/hooks/useCart";
 import {toggleMobileMenu} from "@/hooks/useToggle";
 import {getToken} from "@/hooks/useToken";
+import {useApp} from "@/providers/ContextProvider";
+import {CartGroup} from "@/types/interfaces/CartGroup";
 import {CartItem} from "@/types/interfaces/CartItem";
+import {CartItemChecked} from "@/types/interfaces/CartItemChecked";
+import {ContextData} from "@/types/interfaces/ContextData";
 import Image from "next/image";
 import Link from "next/link";
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 
 
 const Header: React.FC = () => {
+    const context: ContextData | undefined = useApp();
     const token: string | null = getToken();
-
-    const [cart, setCart] = useState<number>(0);
 
     const {data, isLoading, isError, error} = useCart();
 
     useEffect(() => {
         if(data) {
+            const cartItems: CartItemChecked[] = [];
             let count: number = 0;
 
-            data.data.items.map((item: CartItem) => {
-                count += item.qty;
+            data.data.groups.map((group: CartGroup) => {
+                const cartItem: CartItemChecked = {
+                    shop: group.shop,
+                    items: []
+                };
+                group.items.map((item: CartItem) => {
+                    cartItem.items.push({...item, checked: false});
+                    count += item.qty;
+                });
+
+                cartItems.push(cartItem);
             });
 
-            setCart(count);
+            context?.setCartCount(count);
+            context?.setCartItems(cartItems);
+            context?.setCartTotal(data.data.grandTotal);
         }
     }, [data]);
 
@@ -45,8 +60,8 @@ const Header: React.FC = () => {
                 <div className="flex gap-3 items-center lg:gap-8">
                     <Link className="relative" href={'/cart/'}>
                         <Image src={'/images/icon-cart.png'} width={24} height={24} alt={'Cart Icon'}/>
-                        {cart > 0 &&
-                            <div className="absolute top-min10_ right-min8_ flex justify-center items-center w-5 h-5 bg-red rounded-full text-xs font-semibold text-contrast-0">{cart}</div>}
+                        {(context?.cartCount ?? 0) > 0 &&
+                            <div className="absolute top-min10_ right-min8_ flex justify-center items-center w-5 h-5 bg-red rounded-full text-xs font-semibold text-contrast-0">{context?.cartCount}</div>}
                     </Link>
                     <div className="hidden gap-3 lg:flex">
                         {token && <>

@@ -11,7 +11,7 @@ import React from "react";
 
 const Review: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="gap-6 items-start site">
@@ -76,7 +76,7 @@ const Review: React.FC = () => {
                 </section>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 

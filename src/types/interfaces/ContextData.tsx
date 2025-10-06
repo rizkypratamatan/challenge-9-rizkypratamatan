@@ -1,8 +1,17 @@
+import {CartItemChecked} from "@/types/interfaces/CartItemChecked";
 import {Dispatch, SetStateAction} from "react";
 
 
 export interface ContextData {
-    quantities: number[];
+    cartItems: CartItemChecked[];
 
-    setQuantities: Dispatch<SetStateAction<number[]>>;
+    setCartItems: Dispatch<SetStateAction<CartItemChecked[]>>;
+
+    cartCount: number;
+
+    setCartCount: Dispatch<SetStateAction<number>>;
+
+    cartTotal: number;
+
+    setCartTotal: Dispatch<SetStateAction<number>>;
 }

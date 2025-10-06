@@ -24,7 +24,7 @@ const StoreOpen: React.FC = () => {
     const {register, handleSubmit, errors, onSubmit} = useStoreOpen();
 
     return (
-        <>
+        <React.Fragment>
             {status === StepStatus.OnProcess &&
                 <main className="flex flex-col gap-6 mx-6 mt-[15vh] p-6 border border-neutral-200 rounded-2xl shadow-25 site sm:max-w-451_ sm:mx-auto">
                     <Logo dynamic={true}/>
@@ -56,23 +56,23 @@ const StoreOpen: React.FC = () => {
                         </fieldset>
                     </form>
                 </main>}
-            {status === StepStatus.Succeeded && <>
+            {status === StepStatus.Succeeded && <React.Fragment>
                 <Header/>
                 <MenuMobile/>
                 <main className="flex-col gap-6 site">
                     <ResponsePage src={'/images/image-store-open-succeeded.png'} alt={'Open Store Succeeded Image'} heading={'Your Store is Ready!'} description={'Store created! Add products and start selling today.'} href={'/store/dashboard/'} linkText={'Go to Dashboard'}/>
                 </main>
                 <Footer/>
-            </>}
-            {status === StepStatus.Failed && <>
+            </React.Fragment>}
+            {status === StepStatus.Failed && <React.Fragment>
                 <Header/>
                 <MenuMobile/>
                 <main className="flex-col gap-6 site">
                     <ResponsePage src={'/images/image-store-open-failed.png'} alt={'Open Store Failed Image'} heading={`Couldn't Create Store!`} description={'Something went wrong while creating your store. Please check your details and try again.'} href={'/store/open/'} linkText={'Back to Form'}/>
                 </main>
                 <Footer/>
-            </>}
-        </>
+            </React.Fragment>}
+        </React.Fragment>
     );
 };
 

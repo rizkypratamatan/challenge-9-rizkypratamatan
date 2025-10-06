@@ -20,7 +20,7 @@ import React from "react";
 
 const StoreOrder: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Sidebar/>
             <Header/>
             <main className="pt-64_ store-content">
@@ -161,7 +161,7 @@ const StoreOrder: React.FC = () => {
                     </Tabs>
                 </div>
             </main>
-        </>
+        </React.Fragment>
     );
 };
 

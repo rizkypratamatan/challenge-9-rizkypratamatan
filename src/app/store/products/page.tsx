@@ -18,7 +18,7 @@ import React from "react";
 
 const StoreProducts: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Sidebar/>
             <Header/>
             <main className="pt-64_ store-content">
@@ -72,7 +72,7 @@ const StoreProducts: React.FC = () => {
                     </div>
                 </div>
             </main>
-        </>
+        </React.Fragment>
     );
 };
 

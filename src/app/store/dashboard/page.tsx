@@ -6,7 +6,7 @@ import React from "react";
 
 const StoreDashboard: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Sidebar/>
             <Header/>
             <main className="pt-64_ store-content">
@@ -18,7 +18,7 @@ const StoreDashboard: React.FC = () => {
                     <DashboardItem src={'/images/icon-file-check.png'} alt={'File Check Icon'} title={'Completed Orders'} value={'8'}/>
                 </div>
             </main>
-        </>
+        </React.Fragment>
     );
 };
 

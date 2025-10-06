@@ -1,13 +1,13 @@
-import {addToCartService} from "@/services/addToCartService";
-import {AddToCartRequest} from "@/types/interfaces/AddToCartRequest";
+import {updateCartService} from "@/services/updateCartService";
+import {UpdateCartRequest} from "@/types/interfaces/UpdateCartRequest";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 
 
-export const useAddToCart = () => {
+export const useUpdateCart = () => {
     const queryClient = useQueryClient();
 
     const mutation = useMutation({
-        mutationFn: (data: AddToCartRequest) => addToCartService(data),
+        mutationFn: (data: UpdateCartRequest) => updateCartService(data),
         onError: (error: Error) => {
             console.log(error);
         },
@@ -16,7 +16,7 @@ export const useAddToCart = () => {
         },
     })
 
-    const onClick = (data: AddToCartRequest) => {
+    const onClick = (data: UpdateCartRequest) => {
         mutation.mutate(data)
     }
 

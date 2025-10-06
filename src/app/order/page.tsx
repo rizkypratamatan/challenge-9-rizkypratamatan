@@ -21,7 +21,7 @@ import React from "react";
 
 const Order: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="gap-6 items-start site">
@@ -82,7 +82,7 @@ const Order: React.FC = () => {
                 </section>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 

@@ -180,7 +180,11 @@
     }
 
     main.site {
-        @apply flex px-6 py-132_ md:px-56_ lg:px-120_;
+        @apply flex px-6 py-22 md:px-56_ md:py-132_ lg:px-120_;
+    }
+
+    input {
+        @apply !text-sm md:text-lg;
     }
 
     button {

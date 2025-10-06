@@ -10,8 +10,8 @@ type Props = {
 const CheckoutPaymentSummary: React.FC<Props> = ({title, price, total}) => {
     return (
         <div className="flex justify-between">
-            <p className={total ? 'font-bold' : ''}>{title}</p>
-            <p className="font-bold">{price}</p>
+            <p className={`${total ? 'font-bold' : ''} text-sm md:text-base`}>{title}</p>
+            <p className="text-sm font-bold md:text-base">{price}</p>
         </div>
     );
 };

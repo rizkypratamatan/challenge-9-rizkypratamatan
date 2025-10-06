@@ -9,6 +9,7 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import {useAddToCart} from "@/hooks/useAddToCart";
 import {useProduct} from "@/hooks/useProduct";
+import {CartItem} from "@/types/interfaces/CartItem";
 import {ProductReview as ProductReviewItem} from "@/types/interfaces/ProductReview";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,20 +24,51 @@ type Props = {
 const Product: React.FC<Props> = ({params}) => {
     const id: number = Number(useParams().id as string);
 
-    const [featuredImage, setFeaturedImage] = useState<string>('');
-    const [quantities, setQuantities] = useState<number[]>([1]);
+    const [items, setItems] = useState<CartItem[]>([{
+        id: 0,
+        productId: 0,
+        qty: 1,
+        priceSnapshot: 0,
+        subtotal: 0,
+        product: {
+            id: 0,
+            title: '',
+            price: 0,
+            images: [],
+            isActive: false,
+            stock: 0
+        }
+    }]);
+    const [featuredImage, setFeaturedImage] = useState<string>();
     const [reviewLimit, setReviewLimit] = useState<number>(3);
 
     const {data, isLoading, isError, error} = useProduct(id);
 
     useEffect(() => {
-        setFeaturedImage(data?.data.images[0]!);
+        if(data) {
+            setItems([{
+                id: 0,
+                productId: data.data.id,
+                qty: 1,
+                priceSnapshot: 0,
+                subtotal: data.data.price,
+                product: {
+                    id: data.data.id,
+                    title: data.data.title,
+                    price: data.data.price,
+                    images: data.data.images,
+                    isActive: data.data.isActive,
+                    stock: data.data.stock
+                }
+            }]);
+            setFeaturedImage(data.data.images[0]);
+        }
     }, [data]);
 
     const {onClick} = useAddToCart();
 
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="flex-col gap-12 site">
@@ -54,7 +86,7 @@ const Product: React.FC<Props> = ({params}) => {
                                 <Image className="mx-auto rounded-xl" src={featuredImage} width={402} height={402} alt={'Product Thumbnail'}/>}
                             <div className="grid grid-cols-5 gap-2 w-[105%] ml-0.5 mb-0.5">
                                 {data?.data.images.map((image: string, index: number) => {
-                                    return <Image key={index} className={`${image === featuredImage ? 'outline outline-solid outline-neutral-950' : ''} p-1 rounded-xl cursor-pointer`} src={image} width={74} height={74} alt={'Product Thumbnail'} onClick={() => setFeaturedImage(image)}/>
+                                    return <Image key={index} className={`${image === items[0].product.images[0] ? 'outline outline-solid outline-neutral-950' : ''} p-1 rounded-xl cursor-pointer`} src={image} width={74} height={74} alt={'Product Thumbnail'} onClick={() => setFeaturedImage(image)}/>
                                 })}
                             </div>
                         </div>
@@ -89,11 +121,11 @@ const Product: React.FC<Props> = ({params}) => {
                             <div className="line"></div>
                             <div className="flex gap-4 items-center">
                                 <p className="font-semibold">Quantity</p>
-                                <QuantityAdjust index={0} quantities={quantities} setQuantities={setQuantities}/>
+                                <QuantityAdjust index={0} items={items} setItems={setItems} updateCart={false}/>
                             </div>
                             <Button className="w-312_ h-12 bg-neutral-950 font-semibold" onClick={() => onClick({
                                 productId: data?.data.id!,
-                                qty: quantities[0]
+                                qty: items[0].qty
                             })}>
                                 <Image src={'/images/icon-add-to-cart.png'} width={20} height={20} alt={'Add to Cart Icon'}/>
                                 Add to Cart
@@ -111,10 +143,10 @@ const Product: React.FC<Props> = ({params}) => {
                     </div>
                     {data?.data.reviews.map((review: ProductReviewItem, index: number) => {
                         if(index < reviewLimit) {
-                            return <>
-                                <ProductReview key={index}/>
+                            return <React.Fragment key={index}>
+                                <ProductReview/>
                                 {index < (data.data.reviewCount - 1) && <div className="line"></div>}
-                            </>
+                            </React.Fragment>
                         }
                     })}
                     <div className="text-center">
@@ -135,7 +167,7 @@ const Product: React.FC<Props> = ({params}) => {
                 </section>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 

@@ -9,7 +9,7 @@ import React from "react";
 
 const Store: React.FC = () => {
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="flex flex-col gap-8 site">
@@ -52,7 +52,7 @@ const Store: React.FC = () => {
                 </section>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 

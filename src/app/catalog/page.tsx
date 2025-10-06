@@ -31,7 +31,7 @@ const Catalog: React.FC = () => {
     const {data: dataProducts} = useProducts(sort as ProductSort, index, categoryId, minPrice, maxPrice, rating);
 
     return (
-        <>
+        <React.Fragment>
             <Header/>
             <MenuMobile/>
             <main className="flex-col gap-6 site">
@@ -112,7 +112,7 @@ const Catalog: React.FC = () => {
                 </div>
             </main>
             <Footer/>
-        </>
+        </React.Fragment>
     );
 };
 
