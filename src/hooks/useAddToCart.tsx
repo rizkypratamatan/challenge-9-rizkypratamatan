@@ -17,7 +17,7 @@ export const useAddToCart = () => {
     })
 
     const onClick = (data: AddToCartRequest) => {
-        mutation.mutate(data)
+        mutation.mutate(data);
     }
 
     return {onClick};

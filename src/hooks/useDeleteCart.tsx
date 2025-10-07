@@ -17,7 +17,7 @@ export const useDeleteCart = () => {
     })
 
     const onClick = (data: DeleteCartRequest) => {
-        mutation.mutate(data)
+        mutation.mutate(data);
     }
 
     return {onClick};

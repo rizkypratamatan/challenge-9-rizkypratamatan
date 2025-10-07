@@ -2,7 +2,7 @@ import {CartItem} from "@/types/interfaces/CartItem";
 import {ProductShop} from "@/types/interfaces/ProductShop";
 
 
-interface CartItemCheckedItem extends CartItem {
+export interface CartItemCheckedItem extends CartItem {
     checked: boolean;
 }
 

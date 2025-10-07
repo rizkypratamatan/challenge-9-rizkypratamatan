@@ -69,13 +69,13 @@ const Header: React.FC = () => {
                                 <Image src={'/images/icon-store.png'} width={20} height={20} alt={'Store Icon'}/>
                                 <p className="text-sm font-bold">Open Store</p>
                             </Link>
-                            <div className="flex gap-2 items-center h-11 px-3 py-2 border border-neutral-300 rounded-full cursor-pointer">
+                            <Link className="flex gap-2 items-center h-11 px-3 py-2 border border-neutral-300 rounded-full cursor-pointer" href={'/order/'}>
                                 <Avatar>
                                     <AvatarImage src={'/images/avatars/avatar-default.png'} width={32} height={32} alt={'Profile Picture'}/>
                                     <AvatarFallback>John Doe</AvatarFallback>
                                 </Avatar>
                                 <p className="text-sm font-bold">John Doe</p>
-                            </div>
+                            </Link>
                         </>}
                         {!token && <>
                             <Link className="w-144_ h-10 p-2 border border-neutral-300 rounded-sm text-sm font-semibold text-center" href={'/login/'}>Login</Link>

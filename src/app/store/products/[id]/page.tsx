@@ -19,7 +19,6 @@ type Props = {
 
 const StoreProductsDetail: React.FC<Props> = ({params}) => {
     const id: number = Number(useParams().id as string);
-    console.log(id);
 
     return (
         <React.Fragment>

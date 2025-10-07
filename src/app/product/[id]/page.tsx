@@ -9,7 +9,7 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import {useAddToCart} from "@/hooks/useAddToCart";
 import {useProduct} from "@/hooks/useProduct";
-import {CartItem} from "@/types/interfaces/CartItem";
+import {CartItemChecked} from "@/types/interfaces/CartItemChecked";
 import {ProductReview as ProductReviewItem} from "@/types/interfaces/ProductReview";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,27 +17,20 @@ import {useParams} from "next/navigation";
 import React, {useEffect, useState} from "react";
 
 
-type Props = {
-    params: Promise<{ id: string }>
-};
-
-const Product: React.FC<Props> = ({params}) => {
+const Product: React.FC = () => {
     const id: number = Number(useParams().id as string);
 
-    const [items, setItems] = useState<CartItem[]>([{
-        id: 0,
-        productId: 0,
-        qty: 1,
-        priceSnapshot: 0,
-        subtotal: 0,
-        product: {
+    const [items, setItems] = useState<CartItemChecked[]>([{
+        shop: {id: 0, name: '', slug: '', logo: '', address: '', isActive: false},
+        items: [{
             id: 0,
-            title: '',
-            price: 0,
-            images: [],
-            isActive: false,
-            stock: 0
-        }
+            productId: 0,
+            qty: 1,
+            priceSnapshot: 0,
+            subtotal: 0,
+            product: {id: 0, title: '', price: 0, images: [], isActive: false, stock: 0},
+            checked: false
+        }]
     }]);
     const [featuredImage, setFeaturedImage] = useState<string>();
     const [reviewLimit, setReviewLimit] = useState<number>(3);
@@ -46,21 +39,6 @@ const Product: React.FC<Props> = ({params}) => {
 
     useEffect(() => {
         if(data) {
-            setItems([{
-                id: 0,
-                productId: data.data.id,
-                qty: 1,
-                priceSnapshot: 0,
-                subtotal: data.data.price,
-                product: {
-                    id: data.data.id,
-                    title: data.data.title,
-                    price: data.data.price,
-                    images: data.data.images,
-                    isActive: data.data.isActive,
-                    stock: data.data.stock
-                }
-            }]);
             setFeaturedImage(data.data.images[0]);
         }
     }, [data]);
@@ -86,7 +64,7 @@ const Product: React.FC<Props> = ({params}) => {
                                 <Image className="mx-auto rounded-xl" src={featuredImage} width={402} height={402} alt={'Product Thumbnail'}/>}
                             <div className="grid grid-cols-5 gap-2 w-[105%] ml-0.5 mb-0.5">
                                 {data?.data.images.map((image: string, index: number) => {
-                                    return <Image key={index} className={`${image === items[0].product.images[0] ? 'outline outline-solid outline-neutral-950' : ''} p-1 rounded-xl cursor-pointer`} src={image} width={74} height={74} alt={'Product Thumbnail'} onClick={() => setFeaturedImage(image)}/>
+                                    return <Image key={index} className={`${image === featuredImage ? 'outline outline-solid outline-neutral-950' : ''} p-1 rounded-xl cursor-pointer`} src={image} width={74} height={74} alt={'Product Thumbnail'} onClick={() => setFeaturedImage(image)}/>
                                 })}
                             </div>
                         </div>
@@ -121,11 +99,11 @@ const Product: React.FC<Props> = ({params}) => {
                             <div className="line"></div>
                             <div className="flex gap-4 items-center">
                                 <p className="font-semibold">Quantity</p>
-                                <QuantityAdjust index={0} items={items} setItems={setItems} updateCart={false}/>
+                                <QuantityAdjust groupIndex={0} itemIndex={0} items={items} setItems={setItems} updateCart={false}/>
                             </div>
                             <Button className="w-312_ h-12 bg-neutral-950 font-semibold" onClick={() => onClick({
-                                productId: data?.data.id!,
-                                qty: items[0].qty
+                                productId: data?.data.id ?? 0,
+                                qty: items[0].items[0].qty
                             })}>
                                 <Image src={'/images/icon-add-to-cart.png'} width={20} height={20} alt={'Add to Cart Icon'}/>
                                 Add to Cart
@@ -150,7 +128,7 @@ const Product: React.FC<Props> = ({params}) => {
                         }
                     })}
                     <div className="text-center">
-                        {reviewLimit < data?.data.reviewCount! &&
+                        {reviewLimit < (data?.data.reviewCount ?? 0) &&
                             <Button className="w-220_ h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-xl font-semibold text-neutral-950 cursor-pointer">Load
                                 More</Button>}
                     </div>

@@ -17,7 +17,7 @@ export const useUpdateCart = () => {
     })
 
     const onClick = (data: UpdateCartRequest) => {
-        mutation.mutate(data)
+        mutation.mutate(data);
     }
 
     return {onClick};
