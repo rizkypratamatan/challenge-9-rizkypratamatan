@@ -11,7 +11,7 @@ const StoreDashboard: React.FC = () => {
             <Header/>
             <main className="pt-64_ store-content">
                 <h2 className="px-6 pt-6 text-28_ font-bold">Dashboard</h2>
-                <div className="grid grid-cols-4 gap-3 p-6">
+                <div className="grid grid-cols-1 gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
                     <DashboardItem src={'/images/icon-archive.png'} alt={'Archive Icon'} title={'Total Product'} value={'24'}/>
                     <DashboardItem src={'/images/icon-file.png'} alt={'File Icon'} title={'Total Orders'} value={'13'}/>
                     <DashboardItem src={'/images/icon-money.png'} alt={'Money Icon'} title={'Total Revenue'} value={'Rp1.920.000'}/>

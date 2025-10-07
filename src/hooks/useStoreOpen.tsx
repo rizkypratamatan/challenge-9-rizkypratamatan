@@ -1,12 +1,14 @@
 import {storeOpenValidation} from "@/lib/validations/storeOpenValidation";
 import {storeOpenService} from "@/services/storeOpenService";
+import {StepStatus} from "@/types/enums/StepStatus";
 import {StoreOpenRequest} from "@/types/interfaces/StoreOpenRequest";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useMutation} from "@tanstack/react-query";
+import {Dispatch, SetStateAction} from "react";
 import {useForm} from "react-hook-form";
 
 
-export const useStoreOpen = () => {
+export const useStoreOpen = (setStatus: Dispatch<SetStateAction<StepStatus>>) => {
     const {
         register,
         handleSubmit,
@@ -18,7 +20,6 @@ export const useStoreOpen = () => {
             name: '',
             domain: '',
             city: '',
-            postalCode: '',
             address: ''
         }
     });
@@ -27,10 +28,11 @@ export const useStoreOpen = () => {
         mutationFn: (data: StoreOpenRequest) => storeOpenService(data),
         onError: (error: Error) => {
             console.log(error);
+            setStatus(StepStatus.Failed);
         },
         onSettled: (data) => {
             if(data && data.success) {
-                console.log(data);
+                setStatus(StepStatus.Succeeded);
             }
         }
     });

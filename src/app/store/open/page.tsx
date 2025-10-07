@@ -9,19 +9,27 @@ import ResponsePage from "@/components/ResponsePage";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
+import {useSellerShop} from "@/hooks/useSellerShop";
 import {useStoreOpen} from "@/hooks/useStoreOpen";
 import {StepStatus} from "@/types/enums/StepStatus";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {useRouter} from "next/navigation";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 const StoreOpen: React.FC = () => {
     const router: AppRouterInstance = useRouter();
 
-    const [status, setStatus] = useState<StepStatus>(StepStatus.Succeeded);
+    const [status, setStatus] = useState<StepStatus>(StepStatus.OnProcess);
 
-    const {register, handleSubmit, errors, onSubmit} = useStoreOpen();
+    const {register, handleSubmit, errors, onSubmit} = useStoreOpen(setStatus);
+    const {data, isLoading, isError, error} = useSellerShop();
+
+    useEffect(() => {
+        if(!isError) {
+            setStatus(StepStatus.Succeeded);
+        }
+    }, [isError]);
 
     return (
         <React.Fragment>
@@ -40,10 +48,11 @@ const StoreOpen: React.FC = () => {
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="font-bold uppercase">Store Profile</p>
+                                <Input {...register('logo')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg leading-9" type="file" placeholder="Logo"/>
+                                {
+                                    errors.logo && <p className="text-sm text-red">{errors.logo.message as string}</p>}
                                 <Input {...register('city')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="City"/>
                                 {errors.city && <p className="text-sm text-red">{errors.city.message}</p>}
-                                <Input {...register('postalCode')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-lg" type="text" placeholder="Postal Code"/>
-                                {errors.postalCode && <p className="text-sm text-red">{errors.postalCode.message}</p>}
                                 <Textarea {...register('address')} className="px-3 py-2 border border-neutral-300 resize-none" rows={5} placeholder="Detail Address"/>
                                 {errors.address && <p className="text-sm text-red">{errors.address.message}</p>}
                             </div>

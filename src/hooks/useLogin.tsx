@@ -57,3 +57,9 @@ export const useLogin = () => {
         isSuccess,
     };
 };
+
+export const useLogout = () => {
+    localStorage.removeItem('token');
+
+    window.location.reload();
+};

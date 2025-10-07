@@ -6,7 +6,7 @@ import React from "react";
 
 const Sidebar: React.FC = () => {
     return (
-        <div className="fixed flex flex-col gap-4 w-216_ h-[100vh] p-4 bg-contrast-0 border border-neutral-200">
+        <div id="menu-seller" className="fixed flex flex-col gap-4 w-216_ h-[100vh] p-4 bg-contrast-0 border border-neutral-200 duration-500 hide-seller-sidebar">
             <div className="py-2">
                 <Logo/>
             </div>

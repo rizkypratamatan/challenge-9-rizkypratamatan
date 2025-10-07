@@ -24,3 +24,15 @@ export const toggleMobileMenu = () => {
         }
     }
 };
+
+export const toggleSellerSidebar = () => {
+    const menu: HTMLElement | null = document.querySelector('#menu-seller');
+
+    if(menu) {
+        if(menu.classList.contains('translate-x-full')) {
+            menu.classList.remove('translate-x-full');
+        } else {
+            menu.classList.add('translate-x-full');
+        }
+    }
+};

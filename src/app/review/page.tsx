@@ -5,6 +5,7 @@ import MenuMobile from "@/components/MenuMobile";
 import OrderItem from "@/components/OrderItem";
 import OrderStore from "@/components/OrderStore";
 import Search from "@/components/Search";
+import {BuyerSidebarPage} from "@/types/enums/BuyerSidebarPage";
 import Image from "next/image";
 import React from "react";
 
@@ -15,7 +16,7 @@ const Review: React.FC = () => {
             <Header/>
             <MenuMobile/>
             <main className="gap-6 items-start site">
-                <BuyerSidebar/>
+                <BuyerSidebar page={BuyerSidebarPage.Review}/>
                 <section className="grow flex flex-col gap-4">
                     <h2 className="text-32_ font-bold">Review</h2>
                     <Search/>

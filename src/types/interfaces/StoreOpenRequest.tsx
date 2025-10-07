@@ -3,9 +3,9 @@ export interface StoreOpenRequest {
 
     domain: string;
 
-    city: string;
+    logo: FileList;
 
-    postalCode: string;
+    city: string;
 
     address: string;
 }
