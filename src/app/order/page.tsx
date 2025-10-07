@@ -1,3 +1,5 @@
+"use client";
+
 import BuyerSidebar from "@/components/BuyerSidebar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -15,11 +17,14 @@ import {
     PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import React from "react";
 
 
 const Order: React.FC = () => {
+    const [tab, setTab] = React.useState("all");
+
     return (
         <React.Fragment>
             <Header/>
@@ -29,8 +34,20 @@ const Order: React.FC = () => {
                 <section className="grow flex flex-col gap-4">
                     <h2 className="text-32_ font-bold">Order List</h2>
                     <Search/>
-                    <Tabs className="flex flex-col gap-4" defaultValue="all">
-                        <TabsList className="w-full h-auto p-3 bg-contrast-0 rounded-xl">
+                    <Select value={tab} onValueChange={(value) => setTab(value)}>
+                        <SelectTrigger className="w-full !h-11">
+                            <SelectValue placeholder="Status"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">All Order</SelectItem>
+                            <SelectItem value="processing">Processing</SelectItem>
+                            <SelectItem value="delivered">Delivered</SelectItem>
+                            <SelectItem value="completed">Completed</SelectItem>
+                            <SelectItem value="cancelled">Cancelled</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <Tabs className="flex flex-col gap-4" value={tab} onValueChange={setTab}>
+                        <TabsList className="hidden w-full h-auto p-3 bg-contrast-0 rounded-xl md:block">
                             <TabsTrigger className="order-tab-nav" value="all">All Order</TabsTrigger>
                             <TabsTrigger className="order-tab-nav" value="processing">Processing</TabsTrigger>
                             <TabsTrigger className="order-tab-nav" value="delivered">Delivered</TabsTrigger>
@@ -53,7 +70,7 @@ const Order: React.FC = () => {
                                             Order</Button>
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center px-10 py-3 bg-contrast-0 rounded-xl shadow-25">
+                                <div className="flex flex-col justify-between items-center px-10 py-3 bg-contrast-0 rounded-xl shadow-25 md:flex-row">
                                     <p className="text-sm">Showing 1 to 10 of 60 entries</p>
                                     <Pagination className="w-auto mx-0">
                                         <PaginationContent>
