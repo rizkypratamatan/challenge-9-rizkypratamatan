@@ -1,4 +1,6 @@
 export interface AddProductRequest {
+    id?: string;
+
     title: string;
 
     description: string;

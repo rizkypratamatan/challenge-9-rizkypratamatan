@@ -140,7 +140,7 @@ const StoreOrder: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center px-10 py-3 bg-contrast-0 rounded-xl shadow-25">
+                                <div className="flex flex-col justify-between items-center px-10 py-3 bg-contrast-0 rounded-xl shadow-25 md:flex-row">
                                     <p className="text-sm">Showing 1 to 10 of 60 entries</p>
                                     <Pagination className="w-auto mx-0">
                                         <PaginationContent>

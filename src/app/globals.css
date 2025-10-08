@@ -15,6 +15,7 @@
     --neutral-950: #0a0d12;
     --red: #ee1d52;
     --red-100: #c73737;
+    --green: #079455;
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -61,6 +62,7 @@
     --color-neutral-950: var(--neutral-950);
     --color-red: var(--red);
     --color-red-100: var(--red-100);
+    --color-green: var(--green);
     --font-sfpro: 'SFPro', sans-serif;
     --spacing-min10_: -0.625rem;
     --spacing-min8_: -0.5rem;
@@ -228,8 +230,20 @@
         @apply w-full md:left-[13.5rem] md:w-[calc(100%-13.5rem)];
     }
 
+    .store-header-full {
+        @apply w-full left-0;
+    }
+
     .store-content {
-        @apply w-full md:ml-[13.5rem] md:w-[calc(100%-13.5rem)];
+        @apply w-full duration-500 md:ml-[13.5rem] md:w-[calc(100%-13.5rem)];
+    }
+
+    .store-content-full {
+        @apply w-full ml-0;
+    }
+
+    .toaster-success {
+        @apply !bg-green h-10 px-3 py-2 rounded-lg;
     }
 }
 

@@ -16,7 +16,7 @@ export const addProductService = async(params: AddProductRequest) => {
         formData.append('images', file);
     });
 
-    const {data} = await apiClient.post<AddProductResponse>('/seller/products', formData, {headers: {'Content-Type': 'multipart/form-data'}});
+    const {data} = params.id === '' ? await apiClient.post<AddProductResponse>('/seller/products', formData, {headers: {'Content-Type': 'multipart/form-data'}}) : await apiClient.put<AddProductResponse>(`/seller/products/${params.id}`, formData, {headers: {'Content-Type': 'multipart/form-data'}});
 
     return data;
 };

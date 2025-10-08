@@ -126,7 +126,7 @@ const Order: React.FC = () => {
                                                             </AlertDialogCancel>
                                                         </AlertDialogTitle>
                                                         <AlertDialogDescription className="text-sm">
-                                                            <p className="text-sm font-bold">Cancel this order?</p>
+                                                            <p className="font-bold">Cancel this order?</p>
                                                             <p>This action cannot be undone. If you continue, the order
                                                                 will be cancelled and you will no</p>
                                                         </AlertDialogDescription>
@@ -151,7 +151,7 @@ const Order: React.FC = () => {
                                                             </AlertDialogCancel>
                                                         </AlertDialogTitle>
                                                         <AlertDialogDescription className="text-sm">
-                                                            <p className="text-sm font-bold">Mark this order as
+                                                            <p className="font-bold">Mark this order as
                                                                 completed?</p>
                                                             <p>Once confirmed, this order will be closed and cannot be
                                                                 changed.</p>
@@ -176,7 +176,7 @@ const Order: React.FC = () => {
                                                             </AlertDialogCancel>
                                                         </AlertDialogTitle>
                                                         <AlertDialogDescription className="text-sm">
-                                                            <p className="text-sm font-bold text-center text-neutral-950">Give
+                                                            <p className="font-bold text-center text-neutral-950">Give
                                                                 Rating</p>
                                                             <form onSubmit={handleSubmit(onSubmit)}>
                                                                 <fieldset>

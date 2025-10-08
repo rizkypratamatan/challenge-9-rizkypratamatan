@@ -1,10 +1,10 @@
 import {completeOrderService} from "@/services/completeOrderService";
 import {CompleteOrderRequest} from "@/types/interfaces/CompleteOrderRequest";
-import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {QueryClient, useMutation, useQueryClient} from "@tanstack/react-query";
 
 
 export const useCompleteOrder = () => {
-    const queryClient = useQueryClient();
+    const queryClient: QueryClient = useQueryClient();
 
     const mutation = useMutation({
         mutationFn: (data: CompleteOrderRequest) => completeOrderService(data),

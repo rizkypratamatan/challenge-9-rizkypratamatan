@@ -49,7 +49,7 @@ const StoreReviews: React.FC = () => {
                             <ReviewItem index={5}/>
                             </tbody>
                         </table>
-                        <div className="flex justify-between items-center px-6 py-1.5">
+                        <div className="flex flex-col justify-between items-center px-6 py-1.5 md:flex-row">
                             <p className="text-sm">Showing 1 to 10 of 60 entries</p>
                             <Pagination className="w-auto mx-0">
                                 <PaginationContent>

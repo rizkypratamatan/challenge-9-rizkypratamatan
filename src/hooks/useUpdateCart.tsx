@@ -1,10 +1,10 @@
 import {updateCartService} from "@/services/updateCartService";
 import {UpdateCartRequest} from "@/types/interfaces/UpdateCartRequest";
-import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {QueryClient, useMutation, useQueryClient} from "@tanstack/react-query";
 
 
 export const useUpdateCart = () => {
-    const queryClient = useQueryClient();
+    const queryClient: QueryClient = useQueryClient();
 
     const mutation = useMutation({
         mutationFn: (data: UpdateCartRequest) => updateCartService(data),
@@ -12,7 +12,7 @@ export const useUpdateCart = () => {
             console.log(error);
         },
         onSettled: () => {
-            queryClient.invalidateQueries({queryKey: ['cart']})
+            queryClient.invalidateQueries({queryKey: ['cart']});
         },
     })
 

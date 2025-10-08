@@ -17,28 +17,35 @@ import React from "react";
 
 
 type Props = {
-    index: number;
     product: Product;
 };
 
-const ProductItem: React.FC<Props> = ({index, product}) => {
+const ProductItemMobile: React.FC<Props> = ({product}) => {
     const {onClick} = useDeleteProduct();
 
     return (
-        <tr>
-            <td>{index}</td>
-            <td>
-                <div className="flex gap-2.5 items-center">
-                    <Image className="rounded" src={product.images[0]} width={48} height={48} alt={'Product Thumbnail'}/>
-                    <div className="flex flex-col justify-center">
-                        <p className="font-semibold">{product.title}</p>
-                        <p>{product.category.name}</p>
-                    </div>
+        <div className="flex flex-col gap-3 p-3 bg-contrast-0 border border-neutral-200 rounded-xl">
+            <div className="flex gap-2.5">
+                <Image className="rounded-md aspect-square object-cover" src={product.images[0]} width={48} height={48} alt={'Product Thumbnail'}/>
+                <div className="flex flex-col">
+                    <p className="leading-7 text-sm font-semibold">{product.title}</p>
+                    <p className="leading-7 text-sm text-neutral-600">{product.category.name}</p>
                 </div>
-            </td>
-            <td>Rp{product.price.toLocaleString('id-ID')}</td>
-            <td>{product.stock.toLocaleString('id-ID')}</td>
-            <td>
+            </div>
+            <div className="line"></div>
+            <div className="flex gap-9.5">
+                <div className="basis-1/2 flex flex-col">
+                    <p className="leading-7 text-sm font-semibold">Price</p>
+                    <p className="leading-7 text-sm">Rp{product.price.toLocaleString('id-ID')}</p>
+                </div>
+                <div className="basis-1/2 flex flex-col">
+                    <p className="leading-7 text-sm font-semibold">Stock</p>
+                    <p className="leading-7 text-sm">{product.stock.toLocaleString('id-ID')}</p>
+                </div>
+            </div>
+            <div className="line"></div>
+            <div className="flex justify-between">
+                <p className="text-sm font-semibold">Action</p>
                 <div className="flex gap-4">
                     <Link href={`/store/products/${product.id}/`}>
                         <Image src={'/images/icon-eye.png'} width={20} height={20} alt={'Eye Icon'}/>
@@ -69,9 +76,9 @@ const ProductItem: React.FC<Props> = ({index, product}) => {
                         </AlertDialogContent>
                     </AlertDialog>
                 </div>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
 
-export default ProductItem;
+export default ProductItemMobile;

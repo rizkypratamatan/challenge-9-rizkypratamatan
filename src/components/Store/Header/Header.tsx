@@ -1,14 +1,17 @@
+"use client";
+
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
+import {toggleSellerSidebar} from "@/hooks/useToggle";
 import Image from "next/image";
 import React from "react";
 
 
 const Header: React.FC = () => {
     return (
-        <header className="fixed flex items-center h-64_ px-6 bg-contrast-0 border-b border-neutral-200 store-header">
+        <header className="fixed flex items-center h-64_ px-6 bg-contrast-0 border-b border-neutral-200 duration-500 store-header">
             <div className="grow">
-                <Image src={'/images/icon-hamburger.png'} width={24} height={24} alt={'Hamburger Icon'}/>
+                <Image className="cursor-pointer" src={'/images/icon-hamburger.png'} width={24} height={24} alt={'Hamburger Icon'} onClick={toggleSellerSidebar}/>
             </div>
             <div className="relative flex gap-4 items-center">
                 <div className="flex gap-2 items-center">

@@ -15,7 +15,6 @@ export const sellerProductsService = async(params: SellerProductsRequest) => {
     }
 
     const {data} = await apiClient.get<ProductsResponse>(`/seller/products?${url}`);
-    console.log(data)
 
     return data;
 };

@@ -27,12 +27,26 @@ export const toggleMobileMenu = () => {
 
 export const toggleSellerSidebar = () => {
     const menu: HTMLElement | null = document.querySelector('#menu-seller');
+    const header: HTMLElement | null = document.querySelector('header');
+    const main: HTMLElement | null = document.querySelector('main');
 
-    if(menu) {
-        if(menu.classList.contains('translate-x-full')) {
-            menu.classList.remove('translate-x-full');
+    if(menu && header && main) {
+        if(window.innerWidth < 768) {
+            if(menu.classList.contains('hide-seller-sidebar')) {
+                menu.classList.remove('hide-seller-sidebar');
+            } else {
+                menu.classList.add('hide-seller-sidebar');
+            }
         } else {
-            menu.classList.add('translate-x-full');
+            if(menu.classList.contains('translate-x-[-13.5rem]')) {
+                menu.classList.remove('translate-x-[-13.5rem]');
+                header.classList.remove('store-header-full');
+                main.classList.remove('store-content-full');
+            } else {
+                menu.classList.add('translate-x-[-13.5rem]');
+                header.classList.add('store-header-full');
+                main.classList.add('store-content-full');
+            }
         }
     }
 };

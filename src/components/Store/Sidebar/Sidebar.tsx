@@ -1,14 +1,18 @@
+"use client";
+
 import Logo from "@/components/Store/Logo";
 import MenuItem from "@/components/Store/MenuItem";
+import {toggleSellerSidebar} from "@/hooks/useToggle";
 import Image from "next/image";
 import React from "react";
 
 
 const Sidebar: React.FC = () => {
     return (
-        <div id="menu-seller" className="fixed flex flex-col gap-4 w-216_ h-[100vh] p-4 bg-contrast-0 border border-neutral-200 duration-500 hide-seller-sidebar">
-            <div className="py-2">
+        <div id="menu-seller" className="fixed z-60 flex flex-col gap-4 w-216_ h-[100vh] p-4 bg-contrast-0 border border-neutral-200 duration-500 hide-seller-sidebar">
+            <div className="flex justify-between items-center py-2">
                 <Logo/>
+                <Image className="md:hidden" src={'/images/icon-close.png'} width={24} height={24} alt={'Close Icon'} onClick={toggleSellerSidebar}/>
             </div>
             <nav className="flex flex-col store-sidebar-menu">
                 <MenuItem href={'/store/dashboard/'} src={'/images/icon-grid.png'} alt={'Grid Icon'} text={'Dashboard'} active={true}/>

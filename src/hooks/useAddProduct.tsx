@@ -10,12 +10,14 @@ export const useAddProduct = () => {
     const {
         register,
         control,
+        setValue,
         handleSubmit,
         formState: {errors},
         reset,
     } = useForm({
         resolver: zodResolver(addProductValidation),
         defaultValues: {
+            id: '',
             title: '',
             description: '',
             price: '',
@@ -44,6 +46,7 @@ export const useAddProduct = () => {
     return {
         register,
         control,
+        setValue,
         handleSubmit,
         errors,
         reset,

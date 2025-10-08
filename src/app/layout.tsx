@@ -1,3 +1,4 @@
+import {Toaster} from "@/components/ui/sonner";
 import {ContextProvider} from "@/providers/ContextProvider";
 import TanstackProvider from "@/providers/TanstackProvider";
 import type {Metadata} from "next";
@@ -15,6 +16,12 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <html lang="en">
         <body>
         <ContextProvider>
+            <Toaster position="top-center" toastOptions={{
+                classNames: {
+                    title: 'text-sm !font-semibold !text-contrast-0'
+                },
+                duration: Infinity
+            }}/>
             <TanstackProvider>{children}</TanstackProvider>
         </ContextProvider>
         </body>
