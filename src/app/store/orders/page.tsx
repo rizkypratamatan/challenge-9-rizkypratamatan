@@ -1,3 +1,5 @@
+"use client";
+
 import Search from "@/components/Search";
 import Header from "@/components/Store/Header";
 import OrderInvoice from "@/components/Store/OrderInvoice";
@@ -14,11 +16,16 @@ import {
     PaginationPrevious
 } from "@/components/ui/pagination";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {useOrderItems} from "@/hooks/useOrderItems";
 import Image from "next/image";
-import React from "react";
+import React, {useState} from "react";
 
 
 const StoreOrder: React.FC = () => {
+    const [index, setIndex] = useState<number>(1);
+
+    const {data} = useOrderItems(index);
+
     return (
         <React.Fragment>
             <Sidebar/>

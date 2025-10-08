@@ -1,26 +1,28 @@
+import {Product} from "@/types/interfaces/Product";
 import Image from "next/image";
 import React from "react";
 
 
 type Props = {
     index: number;
+    product: Product;
 };
 
-const ProductItem: React.FC<Props> = ({index}) => {
+const ProductItem: React.FC<Props> = ({index, product}) => {
     return (
         <tr>
             <td>{index}</td>
             <td>
                 <div className="flex gap-2.5 items-center">
-                    <Image className="rounded" src={'/images/products/image-product.png'} width={48} height={48} alt={'Product Thumbnail'}/>
+                    <Image className="rounded" src={product.images[0]} width={48} height={48} alt={'Product Thumbnail'}/>
                     <div className="flex flex-col justify-center">
-                        <p className="font-semibold">Sneakers Court Minimalis</p>
-                        <p>Shoes</p>
+                        <p className="font-semibold">{product.title}</p>
+                        <p>{product.category.name}</p>
                     </div>
                 </div>
             </td>
-            <td>Rp275.000</td>
-            <td>40</td>
+            <td>Rp{product.price.toLocaleString('id-ID')}</td>
+            <td>{product.stock.toLocaleString('id-ID')}</td>
             <td>
                 <div className="flex gap-4">
                     <Image src={'/images/icon-eye.png'} width={20} height={20} alt={'Eye Icon'}/>

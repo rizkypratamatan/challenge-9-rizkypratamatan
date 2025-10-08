@@ -18,6 +18,7 @@ import {StepStatus} from "@/types/enums/StepStatus";
 import {CartItemChecked, CartItemCheckedItem} from "@/types/interfaces/CartItemChecked";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
+import {Controller} from "react-hook-form";
 
 
 const Checkout: React.FC = () => {
@@ -32,7 +33,7 @@ const Checkout: React.FC = () => {
         }
     }, []);
 
-    const {register, handleSubmit, errors, onSubmit} = useCheckout(setStatus);
+    const {register, control, handleSubmit, errors, onSubmit} = useCheckout(setStatus);
 
     return (
         <React.Fragment>
@@ -46,12 +47,21 @@ const Checkout: React.FC = () => {
                             <section className="grow flex flex-col gap-6">
                                 <div className="flex flex-col gap-4 px-5 py-5 bg-contrast-0 rounded-lg shadow-25">
                                     <h3>Shipping Address</h3>
-                                    <Input className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Name"/>
-                                    <Input className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Phone Number"/>
-                                    <Input className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="City"/>
-                                    <Input className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Postal Code"/>
-                                    <Textarea {...register('address')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl resize-none" rows={5} placeholder="Address"/>
-                                    {errors.address && <p className="text-sm text-red">{errors.address.message}</p>}
+                                    <Input {...register('address.name')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Name"/>
+                                    {errors.address?.name &&
+                                        <p className="text-sm text-red">{errors.address.name.message}</p>}
+                                    <Input {...register('address.phone')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Phone Number"/>
+                                    {errors.address?.phone &&
+                                        <p className="text-sm text-red">{errors.address.phone.message}</p>}
+                                    <Input {...register('address.city')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="City"/>
+                                    {errors.address?.city &&
+                                        <p className="text-sm text-red">{errors.address.city.message}</p>}
+                                    <Input {...register('address.postalCode')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl" type="text" placeholder="Postal Code"/>
+                                    {errors.address?.postalCode &&
+                                        <p className="text-sm text-red">{errors.address.postalCode.message}</p>}
+                                    <Textarea {...register('address.address')} className="h-56_ px-3 py-2 border border-neutral-300 rounded-xl resize-none" rows={5} placeholder="Address"/>
+                                    {errors.address?.address &&
+                                        <p className="text-sm text-red">{errors.address.address.message}</p>}
                                 </div>
                                 <div className="flex flex-col gap-4 px-5 py-5 bg-contrast-0 rounded-lg">
                                     {items.map((group: CartItemChecked, index: number) => {
@@ -71,14 +81,18 @@ const Checkout: React.FC = () => {
                                     <div className="line"></div>
                                     <div className="flex flex-col gap-3">
                                         <h3 className="font-bold md:text-lg">Shipping Method</h3>
-                                        <Select>
-                                            <SelectTrigger className="w-full !h-56_">
-                                                <SelectValue placeholder={'Select Shipping'}/>
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectItem value={'Shipping Method'}>Shipping Method</SelectItem>
-                                            </SelectContent>
-                                        </Select>
+                                        <Controller name="shippingMethod" control={control} render={({field}) => (
+                                            <Select onValueChange={field.onChange} value={field.value}>
+                                                <SelectTrigger className="w-full !h-56_">
+                                                    <SelectValue placeholder={'Select Shipping'}/>
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value={'JNE REG'}>JNE REG</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        )}/>
+                                        {errors.shippingMethod &&
+                                            <p className="text-sm text-red">{errors.shippingMethod.message}</p>}
                                     </div>
                                 </div>
                             </section>

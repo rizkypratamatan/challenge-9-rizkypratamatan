@@ -1,4 +1,4 @@
-import {checkoutValidation} from "@/lib/validations/CheckoutValidation";
+import {checkoutValidation} from "@/lib/validations/checkoutValidation";
 import {checkoutService} from "@/services/checkoutService";
 import {StepStatus} from "@/types/enums/StepStatus";
 import {CheckoutRequest} from "@/types/interfaces/CheckoutRequest";
@@ -11,13 +11,21 @@ import {useForm} from "react-hook-form";
 export const useCheckout = (setStatus: Dispatch<SetStateAction<StepStatus>>) => {
     const {
         register,
+        control,
         handleSubmit,
         formState: {errors},
         reset,
     } = useForm({
         resolver: zodResolver(checkoutValidation),
         defaultValues: {
-            address: ''
+            address: {
+                name: '',
+                phone: '',
+                city: '',
+                postalCode: '',
+                address: ''
+            },
+            shippingMethod: ''
         }
     });
 
@@ -40,6 +48,7 @@ export const useCheckout = (setStatus: Dispatch<SetStateAction<StepStatus>>) => 
 
     return {
         register,
+        control,
         handleSubmit,
         errors,
         reset,
