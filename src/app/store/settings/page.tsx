@@ -63,12 +63,12 @@ const StoreSettings: React.FC = () => {
                 <h2 className="px-6 pt-6 text-28_ font-bold">Settings</h2>
                 <div className="p-6">
                     <Tabs className="flex flex-col gap-6 p-5 bg-contrast-0 rounded-xl" defaultValue="profile">
-                        <TabsList className="!w-240_ h-auto p-3 bg-contrast-0 rounded-xl">
+                        <TabsList className="w-full h-auto p-3 bg-contrast-0 rounded-xl md:!w-240_">
                             <TabsTrigger className="order-tab-nav" value="profile">Profile</TabsTrigger>
                             <TabsTrigger className="order-tab-nav" value="address">Address</TabsTrigger>
                         </TabsList>
                         <TabsContent value="profile">
-                            <div className="w-457_ flex flex-col gap-4 p-5 border border-neutral-300 rounded-md">
+                            <div className="flex flex-col gap-4 p-5 border border-neutral-300 rounded-md md:w-457_">
                                 <div className="flex flex-col gap-4">
                                     <Image src={data?.data.logo ?? '/images/image-store.png'} width={64} height={64} alt={'Store Image'}/>
                                     <div className="flex flex-col">
@@ -119,16 +119,14 @@ const StoreSettings: React.FC = () => {
                             </div>
                         </TabsContent>
                         <TabsContent value="address">
-                            <div className="flex gap-0.5 justify-between items-center p-4 border border-neutral-300 rounded-md">
-                                <div className="basis-404_ flex flex-col gap-0.5">
-                                    <p className="leading-7 text-sm font-bold">{data?.data.address}</p>
+                            <div className="flex flex-col gap-0.5 justify-between items-center p-4 border border-neutral-300 rounded-md md:flex-row">
+                                <div className="flex flex-col gap-0.5 md:basis-404_">
+                                    <p className="leading-7 text-sm font-bold">Jakarta Utara</p>
                                     <p className="leading-7 text-sm">612421</p>
-                                    <p className="leading-7 text-sm">Lorem ipsum dolor sit amet consectetur. Maecenas
-                                        volutpat sit ut ut molestie suspendisse odio maecenas. Quam cursus commodo a
-                                        donec potenti feugiat.</p>
+                                    <p className="leading-7 text-sm">{data?.data.address}</p>
                                 </div>
                                 <AlertDialog>
-                                    <AlertDialogTrigger className="basis-261_ h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950">Change
+                                    <AlertDialogTrigger className="h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950 md:basis-261_">Change
                                     Address</AlertDialogTrigger>
                                     <AlertDialogContent className="bg-contrast-0 border-0">
                                         <form onSubmit={handleSubmit(onSubmit)}>

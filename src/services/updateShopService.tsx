@@ -1,6 +1,6 @@
 import {apiClient} from "@/lib/api-client";
-import {UpdateCartResponse} from "@/types/interfaces/UpdateCartResponse";
 import {UpdateShopRequest} from "@/types/interfaces/UpdateShopRequest";
+import {UpdateShopResponse} from "@/types/interfaces/UpdateShopResponse";
 
 
 export const updateShopService = async(params: UpdateShopRequest) => {
@@ -9,11 +9,13 @@ export const updateShopService = async(params: UpdateShopRequest) => {
     formData.append('address', params.address);
     formData.append('isActive', String(params.isActive));
 
-    Array.from(params.logo).forEach(file => {
-        formData.append('logo', file);
-    });
+    if(params.logo) {
+        Array.from(params.logo).forEach(file => {
+            formData.append('logo', file);
+        });
+    }
 
-    const {data} = await apiClient.patch<UpdateCartResponse>('/seller/shop', formData, {headers: {'Content-Type': 'multipart/form-data'}});
+    const {data} = await apiClient.patch<UpdateShopResponse>('/seller/shop', formData, {headers: {'Content-Type': 'multipart/form-data'}});
 
     return data;
 };

@@ -25,6 +25,19 @@ export const toggleMobileMenu = () => {
     }
 };
 
+export const toggleSellerAccount = () => {
+    const toggle: HTMLElement | null = document.querySelector('#seller-account-toggle');
+    const popup: HTMLElement | null = document.querySelector('#seller-account');
+
+    if(toggle && popup) {
+        if(popup.classList.contains('hide-seller-account')) {
+            popup.classList.remove('hide-seller-account');
+        } else {
+            popup.classList.add('hide-seller-account');
+        }
+    }
+};
+
 export const toggleSellerSidebar = () => {
     const menu: HTMLElement | null = document.querySelector('#menu-seller');
     const header: HTMLElement | null = document.querySelector('header');

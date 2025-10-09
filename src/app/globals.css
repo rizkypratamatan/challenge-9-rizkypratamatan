@@ -253,6 +253,10 @@
     .toaster-failed {
         @apply !bg-red h-10 px-3 py-2 rounded-lg;
     }
+
+    .hide-seller-account {
+        @apply invisible opacity-0;
+    }
 }
 
 @layer utilities {
