@@ -16,12 +16,10 @@ import {
     PaginationPrevious
 } from "@/components/ui/pagination";
 import {useSellerProducts} from "@/hooks/useSellerProducts";
-import {useToastSuccess} from "@/hooks/useToast";
 import {Product} from "@/types/interfaces/Product";
 import Image from "next/image";
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
-import {toast} from "sonner";
 
 
 const StoreProducts: React.FC = () => {
@@ -32,7 +30,6 @@ const StoreProducts: React.FC = () => {
         if(window.innerWidth < 768) {
             setMobile(true);
         }
-        toast('Product has been deleted successfully.', useToastSuccess());
     }, []);
     const {data} = useSellerProducts(index);
 

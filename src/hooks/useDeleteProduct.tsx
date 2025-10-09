@@ -1,3 +1,4 @@
+import {toastFailed, toastSuccess} from "@/hooks/useToast";
 import {deleteProductService} from "@/services/deleteProductService";
 import {DeleteProductRequest} from "@/types/interfaces/DeleteProductRequest";
 import {QueryClient, useMutation, useQueryClient} from "@tanstack/react-query";
@@ -11,14 +12,10 @@ export const useDeleteProduct = () => {
         mutationFn: (data: DeleteProductRequest) => deleteProductService(data),
         onError: (error: Error) => {
             console.log(error);
+            toast('Failed to delete product. Please try again.', toastFailed());
         },
         onSettled: () => {
-            toast('Product has been deleted successfully.', {
-                classNames: {
-                    toast: "bg-green h-10 px-3 py-2 rounded-lg",
-                    title: "text-lg font-semibold",
-                },
-            });
+            toast('Product has been deleted successfully.', toastSuccess());
 
             queryClient.invalidateQueries({queryKey: ['sellerProducts']});
         },

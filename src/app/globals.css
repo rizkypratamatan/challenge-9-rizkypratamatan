@@ -195,6 +195,10 @@
     button {
         @apply cursor-pointer;
     }
+
+    .toaster button {
+        @apply !bg-transparent;
+    }
 }
 
 @layer components {
@@ -244,6 +248,10 @@
 
     .toaster-success {
         @apply !bg-green h-10 px-3 py-2 rounded-lg;
+    }
+
+    .toaster-failed {
+        @apply !bg-red h-10 px-3 py-2 rounded-lg;
     }
 }
 

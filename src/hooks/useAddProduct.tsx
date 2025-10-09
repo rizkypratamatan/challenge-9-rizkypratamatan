@@ -1,9 +1,11 @@
+import {toastFailed, toastSuccess} from "@/hooks/useToast";
 import {addProductValidation} from "@/lib/validations/addProductValidation";
 import {addProductService} from "@/services/addProductService";
 import {AddProductRequest} from "@/types/interfaces/AddProductRequest";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useMutation} from "@tanstack/react-query";
 import {useForm} from "react-hook-form";
+import {toast} from "sonner";
 
 
 export const useAddProduct = () => {
@@ -31,10 +33,11 @@ export const useAddProduct = () => {
         mutationFn: (data: AddProductRequest) => addProductService(data),
         onError: (error: Error) => {
             console.log(error);
+            toast('Failed to save product. Please try again.', toastFailed());
         },
         onSettled: (data) => {
             if(data && data.success) {
-                console.log(data);
+                toast('Product has been saved successfully.', toastSuccess());
             }
         }
     });

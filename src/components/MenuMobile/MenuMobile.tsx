@@ -14,14 +14,17 @@ import {
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {useLogout} from "@/hooks/useLogin";
 import {toggleMobileMenu} from "@/hooks/useToggle";
-import {getToken} from "@/hooks/useToken";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 
 const MenuMobile: React.FC = () => {
-    const token: string | null = getToken();
+    const [token, setToken] = useState<string | null>(null);
+
+    useEffect(() => {
+        setToken(localStorage.getItem('token'));
+    }, []);
 
     return (
         <div id="menu-mobile" className="fixed z-50 w-full h-[100vh] bg-contrast-0 duration-500 translate-x-full">

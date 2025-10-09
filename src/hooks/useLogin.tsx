@@ -1,6 +1,5 @@
 "use client";
 
-import {setToken} from "@/hooks/useToken";
 import {loginValidation} from "@/lib/validations/loginValidation";
 import {loginService} from "@/services/loginService";
 import {LoginRequest} from "@/types/interfaces/LoginRequest";
@@ -34,7 +33,7 @@ export const useLogin = () => {
         },
         onSettled: (data) => {
             if(data && data.success) {
-                setToken(data.data.token);
+                localStorage.setItem('token', data.data.token);
 
                 router.push('/');
             }

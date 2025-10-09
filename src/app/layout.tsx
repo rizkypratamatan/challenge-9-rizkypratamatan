@@ -20,7 +20,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                 classNames: {
                     title: 'text-sm !font-semibold !text-contrast-0'
                 },
-                duration: Infinity
+                duration: 7000
             }}/>
             <TanstackProvider>{children}</TanstackProvider>
         </ContextProvider>
