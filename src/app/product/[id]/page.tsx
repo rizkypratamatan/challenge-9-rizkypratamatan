@@ -83,8 +83,8 @@ const Product: React.FC = () => {
                                 <p>{data?.data.description}</p>
                             </div>
                             <div className="line"></div>
-                            <div className="flex justify-between items-center">
-                                <div className="grow flex gap-4 items-center">
+                            <div className="flex gap-3 justify-between items-center">
+                                <div className="grow flex gap-4 items-center w-[171px] overflow-hidden">
                                     <Avatar className="w-12 h-12 md:w-64_ md:h-64_">
                                         <AvatarImage src={'/images/avatars/seller/avatar-default.png'} width={64} height={64} alt={'Seller Profile Picture'}/>
                                         <AvatarFallback>{data?.data.shop.name}</AvatarFallback>
