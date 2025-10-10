@@ -3,7 +3,7 @@ import {BaseResponse} from "@/types/interfaces/BaseResponse";
 
 
 interface MyReviewResponseDataReview {
-
+    id: number;
 }
 
 

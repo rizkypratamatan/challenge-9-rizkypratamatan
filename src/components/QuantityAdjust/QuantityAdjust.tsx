@@ -9,7 +9,7 @@ type Props = {
     groupIndex: number;
     itemIndex: number;
     items: CartItemChecked[];
-    setItems: Dispatch<SetStateAction<CartItemChecked[]>>;
+    setItems?: Dispatch<SetStateAction<CartItemChecked[]>>;
     updateCart: boolean;
 };
 
@@ -28,7 +28,7 @@ const QuantityAdjust: React.FC<Props> = ({groupIndex, itemIndex, items, setItems
 
         if(currentItems[groupIndex].items[itemIndex].qty > 1) {
             currentItems[groupIndex].items[itemIndex].qty -= 1
-            setItems(currentItems);
+            setItems!(currentItems);
 
             if(updateCart) {
                 updateData(currentItems[groupIndex].items[itemIndex].id, currentItems[groupIndex].items[itemIndex].qty);
@@ -41,7 +41,7 @@ const QuantityAdjust: React.FC<Props> = ({groupIndex, itemIndex, items, setItems
 
         if(currentItems[groupIndex].items[itemIndex].qty < 100) {
             currentItems[groupIndex].items[itemIndex].qty += 1
-            setItems(currentItems);
+            setItems!(currentItems);
 
             if(updateCart) {
                 updateData(currentItems[groupIndex].items[itemIndex].id, currentItems[groupIndex].items[itemIndex].qty);

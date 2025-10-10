@@ -7,7 +7,7 @@ import {CartItemChecked} from "@/types/interfaces/CartItemChecked";
 import {ContextData} from "@/types/interfaces/ContextData";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 
 
 type Props = {
@@ -45,7 +45,7 @@ const CartItem: React.FC<Props> = ({groupIndex, itemIndex}) => {
                 <h4 className="pl-7 text-sm font-bold text-right md:pl-0 md:text-xl">Rp{context?.cartItems[groupIndex].items[itemIndex].product.price.toLocaleString('id-ID')}</h4>
                 <div className="flex gap-4 items-center">
                     <Image src={'/images/icon-trash.png'} width={24} height={24} alt={'Trash Icon'} onClick={() => onClick({itemId: context?.cartItems[groupIndex].items[itemIndex].id ?? 0})}/>
-                    <QuantityAdjust groupIndex={groupIndex} itemIndex={itemIndex} items={context?.cartItems ?? []} setItems={context?.setCartItems!} updateCart={true}/>
+                    <QuantityAdjust groupIndex={groupIndex} itemIndex={itemIndex} items={context?.cartItems ?? []} setItems={context?.setCartItems} updateCart={true}/>
                 </div>
             </div>
         </div>
