@@ -4,7 +4,6 @@ import Header from "@/components/Store/Header";
 import Sidebar from "@/components/Store/Sidebar";
 import {
     AlertDialog,
-    AlertDialogAction,
     AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
@@ -127,7 +126,7 @@ const StoreSettings: React.FC = () => {
                                 </div>
                                 <AlertDialog>
                                     <AlertDialogTrigger className="h-12 p-2 bg-contrast-0 border border-neutral-300 rounded-lg font-semibold text-neutral-950 md:basis-261_">Change
-                                    Address</AlertDialogTrigger>
+                                        Address</AlertDialogTrigger>
                                     <AlertDialogContent className="bg-contrast-0 border-0">
                                         <form onSubmit={handleSubmit(onSubmit)}>
                                             <fieldset className="flex flex-col gap-4 bg-contrast-0 border-0">

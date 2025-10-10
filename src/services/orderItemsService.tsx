@@ -1,6 +1,6 @@
 import {apiClient} from "@/lib/api-client";
 import {OrderItemsRequest} from "@/types/interfaces/OrderItemsRequest";
-import {ProductsResponse} from "@/types/interfaces/ProductsResponse";
+import {OrderItemsResponse} from "@/types/interfaces/OrderItemsResponse";
 
 
 export const orderItemsService = async(params: OrderItemsRequest) => {
@@ -10,8 +10,7 @@ export const orderItemsService = async(params: OrderItemsRequest) => {
         url += `&status=${params.status}`;
     }
 
-    const {data} = await apiClient.get<ProductsResponse>(`/seller/order-items?${url}`);
-    console.log(data)
+    const {data} = await apiClient.get<OrderItemsResponse>(`/seller/order-items?${url}`);
 
     return data;
 };

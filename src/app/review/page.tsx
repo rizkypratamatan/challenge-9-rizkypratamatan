@@ -7,7 +7,7 @@ import MenuMobile from "@/components/MenuMobile";
 import OrderItem from "@/components/OrderItem";
 import OrderStore from "@/components/OrderStore";
 import Search from "@/components/Search";
-import {useMyReviews} from "@/services/useMyReviews";
+import {useMyReviews} from "@/hooks/useMyReviews";
 import {BuyerSidebarPage} from "@/types/enums/BuyerSidebarPage";
 import Image from "next/image";
 import React, {useState} from "react";
@@ -28,9 +28,9 @@ const Review: React.FC = () => {
                     <h2 className="text-32_ font-bold">Review</h2>
                     <Search/>
                     <div className="flex flex-col gap-3 p-5 bg-contrast-0 rounded-xl">
-                        <OrderStore order={}/>
+                        <OrderStore order={''}/>
                         <div className="line"></div>
-                        <OrderItem item={}/>
+                        <OrderItem item={''}/>
                         <div className="line"></div>
                         <div className="flex flex-col gap-1">
                             <h3 className="text-sm font-semibold">My Review</h3>

@@ -218,6 +218,10 @@
         @apply h-64_ border-r border-neutral-300;
     }
 
+    .line-horizontal {
+        @apply w-full !h-0 border-b border-neutral-300;
+    }
+
     .product-description ul {
         @apply mt-3 pl-5 list-disc;
     }

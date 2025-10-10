@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'static-ecapac.acer.com',
                 pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.macrumors.com',
+                pathname: '/**',
             }
         ],
     },

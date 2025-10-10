@@ -1,26 +1,32 @@
+import {OrderItem as OrderItemData} from "@/types/interfaces/OrderItem";
 import Image from "next/image";
 import React from "react";
 
 
-const OrderItem: React.FC = () => {
+type Props = {
+    item: OrderItemData;
+};
+
+const OrderItem: React.FC<Props> = ({item}) => {
     return (
-        <div className="flex justify-between items-center">
-            <div className="flex gap-2.5">
-                <Image src={'/images/products/image-product.png'} width={48} height={48} alt={'Product Thumbnail'}/>
+        <div className="flex flex-col gap-3 justify-between items-center md:flex-row">
+            <div className="flex gap-2.5 w-full md:w-auto">
+                <Image src={item.product.images[0]} width={48} height={48} alt={'Product Thumbnail'}/>
                 <div className="flex flex-col justify-center">
-                    <p className="leading-6.5 text-sm font-semibold">Sneakers Court Minimalis</p>
-                    <p className="leading-6.5 text-sm">1 x Rp100.000</p>
+                    <p className="leading-6.5 text-sm font-semibold">{item.product.title}</p>
+                    <p className="leading-6.5 text-sm">{item.qty} x Rp{item.priceSnapshot.toLocaleString('id-ID')}</p>
                 </div>
             </div>
-            <div className="line-vertical"></div>
-            <div className="basis-262_ flex flex-col">
+            <div className="line-horizontal md:line-vertical"></div>
+            <div className="flex flex-col w-full md:w-auto md:basis-262_">
                 <p className="leading-7 text-sm font-semibold">Address</p>
-                <p className="leading-7 text-sm">Johndoe (081234567890)<br/>Kebon Jeruk, Jakarta Barat</p>
+                <p className="leading-7 text-sm">{item.buyer.name} ({item.buyer.phone})<br/>{item.shipping.address}, {item.shipping.city}
+                </p>
             </div>
-            <div className="line-vertical"></div>
-            <div className="basis-262_ flex flex-col">
+            <div className="line-horizontal md:line-vertical"></div>
+            <div className="flex flex-col w-full md:w-auto md:basis-262_">
                 <p className="leading-7 text-sm font-semibold">Shipping</p>
-                <p className="leading-7 text-sm">JNE</p>
+                <p className="leading-7 text-sm">{item.shipping.method}</p>
             </div>
         </div>
     );

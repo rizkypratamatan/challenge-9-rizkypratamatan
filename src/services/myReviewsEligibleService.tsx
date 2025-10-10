@@ -1,6 +1,6 @@
 import {apiClient} from "@/lib/api-client";
-import {ProductsResponse} from "@/types/interfaces/ProductsResponse";
 import {MyReviewsEligibleRequest} from "@/types/interfaces/MyReviewsEligibleRequest";
+import {ProductsResponse} from "@/types/interfaces/ProductsResponse";
 
 
 export const myReviewsEligibleService = async(params: MyReviewsEligibleRequest) => {
